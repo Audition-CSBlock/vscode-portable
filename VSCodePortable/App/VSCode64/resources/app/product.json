@@ -589,6 +589,7 @@
 	"twitterUrl": "https://go.microsoft.com/fwlink/?LinkID=533687",
 	"requestFeatureUrl": "https://go.microsoft.com/fwlink/?LinkID=533482",
 	"privacyStatementUrl": "https://go.microsoft.com/fwlink/?LinkId=786907",
+	"telemetryOptOutUrl": "https://go.microsoft.com/fwlink/?linkid=870136",
 	"npsSurveyUrl": "https://www.research.net/r/Z2RMYRJ",
 	"checksumFailMoreInfoUrl": "https://go.microsoft.com/fwlink/?LinkId=828886",
 	"electronRepository": "Microsoft/vscode-electron-prebuilt",
@@ -627,14 +628,14 @@
 		"editCount": 10,
 		"userProbability": 0.05
 	}],
-	"commit": "936b796aa8667de5edb536b00ce8a8e61fcebfb6",
-	"date": "2018-02-16T05:15:47.029Z",
+	"commit": "6c22e21cdcd6811770ddcc0d8ac3174aaad03678",
+	"date": "2018-03-30T05:16:39.261Z",
 	"checksums": {
-		"vs/workbench/workbench.main.js": "BFUDCyvBJeKRpUYQ7HEMIg",
-		"vs/workbench/workbench.main.css": "hAlhbGwqEUuzlHhtiD4tFg",
-		"vs/workbench/electron-browser/bootstrap/index.html": "B/pZD3lGwBoFd/vrc+23fQ",
-		"vs/workbench/electron-browser/bootstrap/index.js": "TfnD4cw1jN1D5YTdbvvkWg",
-		"vs/workbench/electron-browser/bootstrap/preload.js": "+EewlvUoXdHoTNeSC0+dKw"
+		"vs/workbench/workbench.main.js": "F2INSKCrqpCnr5VI2w64VQ",
+		"vs/workbench/workbench.main.css": "FRvBJTgXDpITKwEd3SxZag",
+		"vs/workbench/electron-browser/bootstrap/index.html": "/Tgz9oebstmTGvDlTpbgpg",
+		"vs/workbench/electron-browser/bootstrap/index.js": "dvL+9opDIhKnn6QttTlp1Q",
+		"vs/workbench/electron-browser/bootstrap/preload.js": "qa/Qk1I8Jr1VFhZMzzIvGQ"
 	},
-	"settingsSearchBuildId": 121000408
+	"settingsSearchBuildId": 122001350
 }

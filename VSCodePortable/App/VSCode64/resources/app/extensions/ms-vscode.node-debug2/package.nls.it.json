@@ -1,5 +1,5 @@
 {
-	"extension.description": "Estensione del debugger di Visual Studio Code per Node.js v6.3+, che utilizza il nuovo protocollo inspector",
+	"extension.description": "Node.js debugging support",
 	"node.label": "Node.js v6.3+ tramite protocollo inspector",
 	"node.sourceMaps.description": "Usa i mapping di origine JavaScript (se esistenti).",
 	"outDir.deprecationMessage": "L'attributo 'outDir' è deprecato. Usare 'outFiles'.",

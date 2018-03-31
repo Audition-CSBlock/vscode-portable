@@ -3,6 +3,14 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_debugadapter_1 = require("vscode-debugadapter");
 const nodeV8Protocol_1 = require("./nodeV8Protocol");
@@ -129,10 +137,18 @@ class Script {
     }
 }
 class InternalSourceBreakpoint {
-    constructor(line, column = 0, condition, hitter) {
+    constructor(line, column = 0, condition, logMessage, hitter) {
         this.line = this.orgLine = line;
         this.column = this.orgColumn = column;
-        this.condition = condition;
+        if (logMessage) {
+            this.condition = logMessageToExpression(logMessage);
+            if (condition) {
+                this.condition = `(${condition}) && ${this.condition}`;
+            }
+        }
+        else if (condition) {
+            this.condition = condition;
+        }
         this.hitCount = 0;
         this.hitter = hitter;
     }
@@ -536,6 +552,8 @@ class NodeDebugSession extends vscode_debugadapter_1.LoggingDebugSession {
         response.body.supportsExceptionInfoRequest = true;
         // This debug adapter supports delayed loading of stackframes
         response.body.supportsDelayedStackTraceLoading = true;
+        // This debug adapter supports log points
+        response.body.supportsLogPoints = true;
         this.sendResponse(response);
     }
     //---- launch request -----------------------------------------------------------------------------------------------------
@@ -670,143 +688,168 @@ class NodeDebugSession extends vscode_debugadapter_1.LoggingDebugSession {
         this.launchRequest2(response, args, programPath, programArgs, runtimeExecutable, runtimeArgs);
     }
     launchRequest2(response, args, programPath, programArgs, runtimeExecutable, runtimeArgs) {
-        let program;
-        let workingDirectory = args.cwd;
-        if (workingDirectory) {
-            if (!Path.isAbsolute(workingDirectory)) {
-                this.sendRelativePathErrorResponse(response, 'cwd', workingDirectory);
-                return;
-            }
-            if (!FS.existsSync(workingDirectory)) {
-                this.sendNotExistErrorResponse(response, 'cwd', workingDirectory);
-                return;
-            }
-            // if working dir is given and if the executable is within that folder, we make the executable path relative to the working dir
-            if (programPath) {
-                program = Path.relative(workingDirectory, programPath);
-            }
-        }
-        else if (programPath) {
-            // if no working dir given, we use the direct folder of the executable
-            workingDirectory = Path.dirname(programPath);
-            program = Path.basename(programPath);
-        }
-        // figure out when to add a '--debug-brk=nnnn'
-        let port = args.port;
-        let launchArgs = [runtimeExecutable].concat(runtimeArgs);
-        if (!this._noDebug) {
-            if (args.port) {
-                // only if the default runtime 'node' is used without arguments
-                if (!args.runtimeExecutable && !args.runtimeArgs) {
-                    // use the specfied port
-                    launchArgs.push(`--debug-brk=${port}`);
+        return __awaiter(this, void 0, void 0, function* () {
+            let program;
+            let workingDirectory = args.cwd;
+            if (workingDirectory) {
+                if (!Path.isAbsolute(workingDirectory)) {
+                    this.sendRelativePathErrorResponse(response, 'cwd', workingDirectory);
+                    return;
+                }
+                if (!FS.existsSync(workingDirectory)) {
+                    this.sendNotExistErrorResponse(response, 'cwd', workingDirectory);
+                    return;
+                }
+                // if working dir is given and if the executable is within that folder, we make the executable path relative to the working dir
+                if (programPath) {
+                    program = Path.relative(workingDirectory, programPath);
                 }
             }
-            else {
-                // use a random port
-                port = random(3000, 50000);
-                launchArgs.push(`--debug-brk=${port}`);
+            else if (programPath) {
+                // if no working dir given, we use the direct folder of the executable
+                workingDirectory = Path.dirname(programPath);
+                program = Path.basename(programPath);
             }
-        }
-        if (program) {
-            launchArgs.push(program);
-        }
-        launchArgs = launchArgs.concat(programArgs);
-        const address = args.address;
-        const timeout = args.timeout;
-        let envVars = args.env;
-        // read env from disk and merge into envVars
-        if (args.envFile) {
-            try {
-                const buffer = PathUtils.stripBOM(FS.readFileSync(args.envFile, 'utf8'));
-                const env = {};
-                buffer.split('\n').forEach(line => {
-                    const r = line.match(/^\s*([\w\.\-]+)\s*=\s*(.*)?\s*$/);
-                    if (r !== null) {
-                        const key = r[1];
-                        if (!process.env[key]) {
-                            let value = r[2] || '';
-                            if (value.length > 0 && value.charAt(0) === '"' && value.charAt(value.length - 1) === '"') {
-                                value = value.replace(/\\n/gm, '\n');
-                            }
-                            env[key] = value.replace(/(^['"]|['"]$)/g, '');
-                        }
-                    }
-                });
-                envVars = PathUtils.extendObject(env, args.env); // launch config env vars overwrite .env vars
-            }
-            catch (e) {
-                this.sendErrorResponse(response, 2029, localize(22, null, '{_error}'), { _error: e.message });
-                return;
-            }
-        }
-        const wslLaunchArgs = WSL.createLaunchArg(args.useWSL, this._supportsRunInTerminalRequest && this._console === 'externalTerminal', workingDirectory, launchArgs[0], launchArgs.slice(1), program); // workaround for #35249
-        // if using subsystem linux, we use local/remote mapping (if not configured by user)
-        if (args.useWSL && !args.localRoot && !args.remoteRoot) {
-            this._localRoot = wslLaunchArgs.localRoot;
-            this._remoteRoot = wslLaunchArgs.remoteRoot;
-        }
-        if (this._supportsRunInTerminalRequest && (this._console === 'externalTerminal' || this._console === 'integratedTerminal')) {
-            const termArgs = {
-                kind: this._console === 'integratedTerminal' ? 'integrated' : 'external',
-                title: localize(23, null),
-                cwd: wslLaunchArgs.cwd,
-                args: wslLaunchArgs.combined,
-                env: envVars
-            };
-            this.runInTerminalRequest(termArgs, NodeDebugSession.RUNINTERMINAL_TIMEOUT, runResponse => {
-                if (runResponse.success) {
-                    // since node starts in a terminal, we cannot track it with an 'exit' handler
-                    // plan for polling after we have gotten the process pid.
-                    this._pollForNodeProcess = !args.runtimeExecutable // only if no 'runtimeExecutable' is specified
-                        && !args.useWSL; // it will not work with WSL either
-                    if (this._noDebug) {
-                        this.sendResponse(response);
-                    }
-                    else {
-                        this._attach(response, args, port, address, timeout);
+            // figure out when to add a '--debug-brk=nnnn'
+            let port = args.port;
+            let launchArgs = [runtimeExecutable].concat(runtimeArgs);
+            if (!this._noDebug) {
+                if (args.port) {
+                    // only if the default runtime 'node' is used without arguments
+                    if (!args.runtimeExecutable && !args.runtimeArgs) {
+                        // use the specfied port
+                        launchArgs.push(`--debug-brk=${port}`);
                     }
                 }
                 else {
-                    this.sendErrorResponse(response, 2011, localize(24, null, '{_error}'), { _error: runResponse.message });
-                    this._terminated('terminal error: ' + runResponse.message);
+                    // use a random port
+                    port = yield findport();
+                    launchArgs.push(`--debug-brk=${port}`);
                 }
-            });
-        }
-        else {
-            this._sendLaunchCommandToConsole(launchArgs);
-            // merge environment variables into a copy of the process.env
-            envVars = PathUtils.extendObject(PathUtils.extendObject({}, process.env), envVars);
-            // delete all variables that have a 'null' value
-            if (envVars) {
-                const e = envVars; // without this tsc complains about envVars potentially undefined
-                Object.keys(e).filter(v => e[v] === null).forEach(key => delete e[key]);
             }
-            const options = {
-                cwd: workingDirectory,
-                env: envVars
-            };
-            const nodeProcess = CP.spawn(wslLaunchArgs.executable, wslLaunchArgs.args, options);
-            nodeProcess.on('error', (error) => {
-                // tslint:disable-next-line:no-bitwise
-                this.sendErrorResponse(response, 2017, localize(25, null, '{_error}'), { _error: error.message }, vscode_debugadapter_1.ErrorDestination.Telemetry | vscode_debugadapter_1.ErrorDestination.User);
-                this._terminated(`failed to launch target (${error})`);
-            });
-            nodeProcess.on('exit', () => {
-                this._terminated('target exited');
-            });
-            nodeProcess.on('close', (code) => {
-                this._terminated('target closed');
-            });
-            this._processId = nodeProcess.pid;
-            this._captureOutput(nodeProcess);
-            if (this._noDebug) {
-                this.sendResponse(response);
+            if (program) {
+                launchArgs.push(program);
+            }
+            launchArgs = launchArgs.concat(programArgs);
+            const address = args.address;
+            const timeout = args.timeout;
+            let envVars = args.env;
+            // read env from disk and merge into envVars
+            if (args.envFile) {
+                try {
+                    const buffer = PathUtils.stripBOM(FS.readFileSync(args.envFile, 'utf8'));
+                    const env = {};
+                    buffer.split('\n').forEach(line => {
+                        const r = line.match(/^\s*([\w\.\-]+)\s*=\s*(.*)?\s*$/);
+                        if (r !== null) {
+                            const key = r[1];
+                            if (!process.env[key]) {
+                                let value = r[2] || '';
+                                if (value.length > 0 && value.charAt(0) === '"' && value.charAt(value.length - 1) === '"') {
+                                    value = value.replace(/\\n/gm, '\n');
+                                }
+                                env[key] = value.replace(/(^['"]|['"]$)/g, '');
+                            }
+                        }
+                    });
+                    envVars = PathUtils.extendObject(env, args.env); // launch config env vars overwrite .env vars
+                }
+                catch (e) {
+                    this.sendErrorResponse(response, 2029, localize(22, null, '{_error}'), { _error: e.message });
+                    return;
+                }
+            }
+            const wslLaunchArgs = WSL.createLaunchArg(args.useWSL, this._supportsRunInTerminalRequest && this._console === 'externalTerminal', workingDirectory, launchArgs[0], launchArgs.slice(1), program); // workaround for #35249
+            // if using subsystem linux, we use local/remote mapping (if not configured by user)
+            if (args.useWSL && !args.localRoot && !args.remoteRoot) {
+                this._localRoot = wslLaunchArgs.localRoot;
+                this._remoteRoot = wslLaunchArgs.remoteRoot;
+            }
+            if (this._supportsRunInTerminalRequest && (this._console === 'externalTerminal' || this._console === 'integratedTerminal')) {
+                const termArgs = {
+                    kind: this._console === 'integratedTerminal' ? 'integrated' : 'external',
+                    title: localize(23, null),
+                    cwd: wslLaunchArgs.cwd,
+                    args: wslLaunchArgs.combined,
+                    env: envVars
+                };
+                this.runInTerminalRequest(termArgs, NodeDebugSession.RUNINTERMINAL_TIMEOUT, runResponse => {
+                    if (runResponse.success) {
+                        // since node starts in a terminal, we cannot track it with an 'exit' handler
+                        // plan for polling after we have gotten the process pid.
+                        this._pollForNodeProcess = !args.runtimeExecutable // only if no 'runtimeExecutable' is specified
+                            && !args.useWSL; // it will not work with WSL either
+                        if (this._noDebug) {
+                            this.sendResponse(response);
+                            // since we do not know the process ID we will not be able to terminate it properly
+                            // therefore we end the session
+                            this._terminated('cannot track process');
+                        }
+                        else {
+                            this._attach(response, args, port, address, timeout);
+                        }
+                    }
+                    else {
+                        this.sendErrorResponse(response, 2011, localize(24, null, '{_error}'), { _error: runResponse.message });
+                        this._terminated('terminal error: ' + runResponse.message);
+                    }
+                });
             }
             else {
-                this._attach(response, args, port, address, timeout);
+                this._sendLaunchCommandToConsole(launchArgs);
+                // merge environment variables into a copy of the process.env
+                envVars = PathUtils.extendObject(PathUtils.extendObject({}, process.env), envVars);
+                // delete all variables that have a 'null' value
+                if (envVars) {
+                    const e = envVars; // without this tsc complains about envVars potentially undefined
+                    Object.keys(e).filter(v => e[v] === null).forEach(key => delete e[key]);
+                }
+                const options = {
+                    cwd: workingDirectory,
+                    env: envVars
+                };
+                // see bug #45832
+                if (process.platform === 'win32' && wslLaunchArgs.executable.indexOf(' ') > 0) {
+                    let foundArgWithSpace = false;
+                    // check whether there is one arg with a space
+                    const args = [];
+                    for (const a of wslLaunchArgs.args) {
+                        if (a.indexOf(' ') > 0) {
+                            args.push(`"${a}"`);
+                            foundArgWithSpace = true;
+                        }
+                        else {
+                            args.push(a);
+                        }
+                    }
+                    if (foundArgWithSpace) {
+                        wslLaunchArgs.args = args;
+                        wslLaunchArgs.executable = `"${wslLaunchArgs.executable}"`;
+                        options.shell = true;
+                    }
+                }
+                const nodeProcess = CP.spawn(wslLaunchArgs.executable, wslLaunchArgs.args, options);
+                nodeProcess.on('error', (error) => {
+                    // tslint:disable-next-line:no-bitwise
+                    this.sendErrorResponse(response, 2017, localize(25, null, '{_error}'), { _error: error.message }, vscode_debugadapter_1.ErrorDestination.Telemetry | vscode_debugadapter_1.ErrorDestination.User);
+                    this._terminated(`failed to launch target (${error})`);
+                });
+                nodeProcess.on('exit', () => {
+                    this._terminated('target exited');
+                });
+                nodeProcess.on('close', (code) => {
+                    this._terminated('target closed');
+                });
+                this._processId = nodeProcess.pid;
+                this._captureOutput(nodeProcess);
+                if (this._noDebug) {
+                    this.sendResponse(response);
+                }
+                else {
+                    this._attach(response, args, port, address, timeout);
+                }
             }
-        }
+        });
     }
     _sendLaunchCommandToConsole(args) {
         // print the command to launch the target to the debug console
@@ -943,12 +986,8 @@ class NodeDebugSession extends vscode_debugadapter_1.LoggingDebugSession {
                             const v = this._node.embeddedHostVersion; // x.y.z version represented as (x*100+y)*100+z
                             if (!this._node.v8Version && v >= 70000) {
                                 this._stepBack = true;
+                                this.sendEvent(new vscode_debugadapter_1.CapabilitiesEvent({ supportsStepBack: true }));
                             }
-                        }
-                        if (this._stepBack) {
-                            response.body = {
-                                supportsStepBack: true
-                            };
                         }
                         this.sendResponse(response);
                         this._startInitialize(!running);
@@ -1252,7 +1291,7 @@ class NodeDebugSession extends vscode_debugadapter_1.LoggingDebugSession {
                         // error
                     }
                 }
-                sbs.push(new InternalSourceBreakpoint(this.convertClientLineToDebugger(b.line), typeof b.column === 'number' ? this.convertClientColumnToDebugger(b.column) : 0, b.condition, hitter));
+                sbs.push(new InternalSourceBreakpoint(this.convertClientLineToDebugger(b.line), typeof b.column === 'number' ? this.convertClientColumnToDebugger(b.column) : 0, b.condition, b.logMessage, hitter));
             }
         }
         else if (args.lines) {
@@ -1492,26 +1531,45 @@ class NodeDebugSession extends vscode_debugadapter_1.LoggingDebugSession {
         });
     }
     _setBreakpoint2(ibp, path, actualSrcLine, actualSrcColumn, actualLine, actualColumn) {
-        // nasty corner case: since we ignore the break-on-entry event we have to make sure that we
-        // stop in the entry point line if the user has an explicit breakpoint there (or if there is a 'debugger' statement).
-        // For this we check here whether a breakpoint is at the same location as the 'break-on-entry' location.
-        // If yes, then we plan for hitting the breakpoint instead of 'continue' over it!
-        if (!this._stopOnEntry && path && PathUtils.pathCompare(this._entryPath, path)) {
-            if (this._entryLine === actualLine && this._entryColumn === actualColumn) {
-                // we do not have to 'continue' but we have to generate a stopped event instead
-                this._needContinue = false;
-                this._needBreakpointEvent = true;
-                this.log('la', '_setBreakpoint2: remember to fire a breakpoint event later');
+        return __awaiter(this, void 0, void 0, function* () {
+            // nasty corner case: since we ignore the break-on-entry event we have to make sure that we
+            // stop in the entry point line if the user has an explicit breakpoint there (or if there is a 'debugger' statement).
+            // For this we check here whether a breakpoint is at the same location as the 'break-on-entry' location.
+            // If yes, then we plan for hitting the breakpoint instead of 'continue' over it!
+            if (path && PathUtils.pathCompare(this._entryPath, path) && this._entryLine === actualLine && this._entryColumn === actualColumn) {
+                let conditionMet = true; // for regular breakpoints condition is always true
+                if (ibp.condition) {
+                    // if conditional breakpoint we have to evaluate the condition because node didn't do it (because it stopped on entry).
+                    conditionMet = yield this.evaluateCondition(ibp.condition);
+                }
+                if (!this._stopOnEntry && conditionMet) {
+                    // we do not have to 'continue' but we have to generate a stopped event instead
+                    this._needContinue = false;
+                    this._needBreakpointEvent = true;
+                    this.log('la', '_setBreakpoint2: remember to fire a breakpoint event later');
+                }
             }
-        }
-        if (ibp.verificationMessage) {
-            const bp = new vscode_debugadapter_1.Breakpoint(false, this.convertDebuggerLineToClient(actualSrcLine), this.convertDebuggerColumnToClient(actualSrcColumn));
-            bp.message = ibp.verificationMessage;
-            return bp;
-        }
-        else {
-            return new vscode_debugadapter_1.Breakpoint(true, this.convertDebuggerLineToClient(actualSrcLine), this.convertDebuggerColumnToClient(actualSrcColumn));
-        }
+            if (ibp.verificationMessage) {
+                const bp = new vscode_debugadapter_1.Breakpoint(false, this.convertDebuggerLineToClient(actualSrcLine), this.convertDebuggerColumnToClient(actualSrcColumn));
+                bp.message = ibp.verificationMessage;
+                return bp;
+            }
+            else {
+                return new vscode_debugadapter_1.Breakpoint(true, this.convertDebuggerLineToClient(actualSrcLine), this.convertDebuggerColumnToClient(actualSrcColumn));
+            }
+        });
+    }
+    evaluateCondition(condition) {
+        const args = {
+            expression: condition,
+            frame: 0,
+            disable_break: true
+        };
+        return this._node.evaluate(args).then(response => {
+            return !!response.body.value;
+        }).catch(e => {
+            return false;
+        });
     }
     /**
      * converts a path into a regular expression for use in the setbreakpoint request
@@ -3343,7 +3401,7 @@ NodeDebugSession.SCOPE_NAMES = [
     localize(62, null)
 ];
 exports.NodeDebugSession = NodeDebugSession;
-const INDEX_PATTERN = /^[0-9]+$/;
+const INDEX_PATTERN = /^(0|[1-9][0-9]*)$/; // 0, 1, 2, ... are indexes but not 007
 function isIndex(name) {
     switch (typeof name) {
         case 'number':
@@ -3354,8 +3412,35 @@ function isIndex(name) {
             return false;
     }
 }
-function random(low, high) {
-    return Math.floor(Math.random() * (high - low) + low);
+const LOGMESSAGE_VARIABLE_REGEXP = /{(.*?)}/g;
+function logMessageToExpression(msg) {
+    msg = msg.replace('%', '%%');
+    let args = [];
+    let format = msg.replace(LOGMESSAGE_VARIABLE_REGEXP, (match, group) => {
+        const a = group.trim();
+        if (a) {
+            args.push(`(${a})`);
+            return '%s';
+        }
+        else {
+            return '';
+        }
+    });
+    format = format.replace('\'', '\\\'');
+    return `console.log('${format}', ${args.join(', ')})`;
+}
+function findport() {
+    return new Promise((c, e) => {
+        let port = 0;
+        const server = Net.createServer();
+        server.on('listening', _ => {
+            port = server.address().port;
+            server.close();
+        });
+        server.on('close', _ => c(port));
+        server.on('error', (err) => e(err));
+        server.listen(0, '127.0.0.1');
+    });
 }
 vscode_debugadapter_1.DebugSession.run(NodeDebugSession);
 

@@ -208,7 +208,7 @@ class CommandCenter {
                     gitRef = indexStatus ? '' : 'HEAD';
                 }
                 const { size, object } = yield repository.lstree(gitRef, uri.fsPath);
-                const { mimetype, encoding } = yield repository.detectObjectType(object);
+                const { mimetype } = yield repository.detectObjectType(object);
                 if (mimetype === 'text/plain') {
                     return uri_1.toGitUri(uri, ref);
                 }
@@ -893,12 +893,6 @@ class CommandCenter {
                 if (opts && opts.amend && repository.HEAD && repository.HEAD.commit) {
                     value = (yield repository.getCommit(repository.HEAD.commit)).message;
                 }
-                const getPreviousCommitMessage = () => __awaiter(this, void 0, void 0, function* () {
-                    //Only return the previous commit message if it's an amend commit and the repo already has a commit
-                    if (opts && opts.amend && repository.HEAD && repository.HEAD.commit) {
-                        return (yield repository.getCommit('HEAD')).message;
-                    }
-                });
                 return yield vscode_1.window.showInputBox({
                     value,
                     placeHolder: localize(51, null),
@@ -1145,7 +1139,7 @@ class CommandCenter {
                 return;
             }
             const remoteCharCnt = remotePick.label.length;
-            repository.pull(false, remotePick.label, branchPick.label.slice(remoteCharCnt + 1));
+            repository.pullFrom(false, remotePick.label, branchPick.label.slice(remoteCharCnt + 1));
         });
     }
     pull(repository) {
@@ -1155,7 +1149,7 @@ class CommandCenter {
                 vscode_1.window.showWarningMessage(localize(71, null));
                 return;
             }
-            yield repository.pull();
+            yield repository.pull(repository.HEAD);
         });
     }
     pullRebase(repository) {
@@ -1165,7 +1159,7 @@ class CommandCenter {
                 vscode_1.window.showWarningMessage(localize(72, null));
                 return;
             }
-            yield repository.pullWithRebase();
+            yield repository.pullWithRebase(repository.HEAD);
         });
     }
     push(repository) {
@@ -1180,7 +1174,7 @@ class CommandCenter {
                 return;
             }
             try {
-                yield repository.push();
+                yield repository.push(repository.HEAD);
             }
             catch (err) {
                 if (err.gitErrorCode !== git_1.GitErrorCodes.NoUpstreamBranch) {
@@ -1237,7 +1231,7 @@ class CommandCenter {
             const config = vscode_1.workspace.getConfiguration('git');
             const shouldPrompt = config.get('confirmSync') === true;
             if (shouldPrompt) {
-                const message = localize(82, null, HEAD.upstream);
+                const message = localize(82, null, HEAD.upstream.remote, HEAD.upstream.name);
                 const yes = localize(83, null);
                 const neverAgain = localize(84, null);
                 const pick = yield vscode_1.window.showWarningMessage(message, { modal: true }, yes, neverAgain);
@@ -1249,10 +1243,10 @@ class CommandCenter {
                 }
             }
             if (rebase) {
-                yield repository.syncRebase();
+                yield repository.syncRebase(HEAD);
             }
             else {
-                yield repository.sync();
+                yield repository.sync(HEAD);
             }
         });
     }
@@ -1266,7 +1260,7 @@ class CommandCenter {
                 if (!HEAD || !HEAD.upstream) {
                     return;
                 }
-                yield repository.sync();
+                yield repository.sync(HEAD);
             })));
         });
     }
@@ -1399,6 +1393,9 @@ class CommandCenter {
             */
             this.telemetryReporter.sendTelemetryEvent('git.command', { command: id });
             return result.catch((err) => __awaiter(this, void 0, void 0, function* () {
+                const options = {
+                    modal: err.gitErrorCode === git_1.GitErrorCodes.DirtyWorkTree
+                };
                 let message;
                 switch (err.gitErrorCode) {
                     case git_1.GitErrorCodes.DirtyWorkTree:
@@ -1422,9 +1419,10 @@ class CommandCenter {
                     console.error(err);
                     return;
                 }
+                options.modal = true;
                 const outputChannel = this.outputChannel;
                 const openOutputChannelChoice = localize(97, null);
-                const choice = yield vscode_1.window.showErrorMessage(message, openOutputChannelChoice);
+                const choice = yield vscode_1.window.showErrorMessage(message, options, openOutputChannelChoice);
                 if (choice === openOutputChannelChoice) {
                     outputChannel.show();
                 }
@@ -1640,4 +1638,4 @@ __decorate([
     command('git.stashPopLatest', { repository: true })
 ], CommandCenter.prototype, "stashPopLatest", null);
 exports.CommandCenter = CommandCenter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\git\out/commands.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\git\out/commands.js.map

@@ -38,4 +38,4 @@ function fetchSelectItem(direction) {
     editor.revealRange(editor.selections[editor.selections.length - 1]);
 }
 exports.fetchSelectItem = fetchSelectItem;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\emmet\out/selectItem.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\emmet\out/selectItem.js.map

@@ -1,5 +1,5 @@
 {
-	"extension.description": "Расширение отладки Visual Studio Code для Node.js версии 6.3 или более поздней версии, использующее новый протокол Inspector",
+	"extension.description": "Node.js debugging support",
 	"node.label": "Node.js версии 6.3 или более поздней версии с использованием протокола Inspector ",
 	"node.sourceMaps.description": "Использовать карты исходного кода JavaScript (если они существуют).",
 	"outDir.deprecationMessage": "Атрибут outDir устарел, используйте вместо него outFiles.",

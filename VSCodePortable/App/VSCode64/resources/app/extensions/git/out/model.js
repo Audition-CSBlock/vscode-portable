@@ -49,9 +49,10 @@ __decorate([
     decorators_1.memoize
 ], RepositoryPick.prototype, "description", null);
 class Model {
-    constructor(git, globalState) {
+    constructor(git, globalState, outputChannel) {
         this.git = git;
         this.globalState = globalState;
+        this.outputChannel = outputChannel;
         this._onDidOpenRepository = new vscode_1.EventEmitter();
         this.onDidOpenRepository = this._onDidOpenRepository.event;
         this._onDidCloseRepository = new vscode_1.EventEmitter();
@@ -85,10 +86,15 @@ class Model {
         return __awaiter(this, void 0, void 0, function* () {
             for (const folder of vscode_1.workspace.workspaceFolders || []) {
                 const root = folder.uri.fsPath;
-                const children = yield new Promise((c, e) => fs.readdir(root, (err, r) => err ? e(err) : c(r)));
-                children
-                    .filter(child => child !== '.git')
-                    .forEach(child => this.tryOpenRepository(path.join(root, child)));
+                try {
+                    const children = yield new Promise((c, e) => fs.readdir(root, (err, r) => err ? e(err) : c(r)));
+                    children
+                        .filter(child => child !== '.git')
+                        .forEach(child => this.tryOpenRepository(path.join(root, child)));
+                }
+                catch (err) {
+                    // noop
+                }
             }
         });
     }
@@ -182,12 +188,23 @@ class Model {
         });
     }
     open(repository) {
+        this.outputChannel.appendLine(`Open repository: ${repository.root}`);
         const onDidDisappearRepository = util_1.filterEvent(repository.onDidChangeState, state => state === repository_1.RepositoryState.Disposed);
         const disappearListener = onDidDisappearRepository(() => dispose());
         const changeListener = repository.onDidChangeRepository(uri => this._onDidChangeRepository.fire({ repository, uri }));
         const originalResourceChangeListener = repository.onDidChangeOriginalResource(uri => this._onDidChangeOriginalResource.fire({ repository, uri }));
-        const statusListener = repository.onDidRunGitStatus(() => this.scanSubmodules(repository));
-        this.scanSubmodules(repository);
+        const submodulesLimit = vscode_1.workspace
+            .getConfiguration('git', vscode_1.Uri.file(repository.root))
+            .get('detectSubmodulesLimit');
+        const checkForSubmodules = () => {
+            if (repository.submodules.length > submodulesLimit) {
+                vscode_1.window.showWarningMessage(localize(0, null, path.basename(repository.root), repository.submodules.length));
+                statusListener.dispose();
+            }
+            this.scanSubmodules(repository, submodulesLimit);
+        };
+        const statusListener = repository.onDidRunGitStatus(checkForSubmodules);
+        checkForSubmodules();
         const dispose = () => {
             disappearListener.dispose();
             changeListener.dispose();
@@ -201,7 +218,7 @@ class Model {
         this.openRepositories.push(openRepository);
         this._onDidOpenRepository.fire(repository);
     }
-    scanSubmodules(repository) {
+    scanSubmodules(repository, limit) {
         const shouldScanSubmodules = vscode_1.workspace
             .getConfiguration('git', vscode_1.Uri.file(repository.root))
             .get('detectSubmodules') === true;
@@ -209,6 +226,7 @@ class Model {
             return;
         }
         repository.submodules
+            .slice(0, limit)
             .map(r => path.join(repository.root, r.path))
             .forEach(p => this.eventuallyScanPossibleGitRepository(p));
     }
@@ -217,12 +235,13 @@ class Model {
         if (!openRepository) {
             return;
         }
+        this.outputChannel.appendLine(`Close repository: ${repository.root}`);
         openRepository.dispose();
     }
     pickRepository() {
         return __awaiter(this, void 0, void 0, function* () {
             if (this.openRepositories.length === 0) {
-                throw new Error(localize(0, null));
+                throw new Error(localize(1, null));
             }
             const picks = this.openRepositories.map((e, index) => new RepositoryPick(e.repository, index));
             const active = vscode_1.window.activeTextEditor;
@@ -232,7 +251,7 @@ class Model {
             if (index > -1) {
                 picks.unshift(...picks.splice(index, 1));
             }
-            const placeHolder = localize(1, null);
+            const placeHolder = localize(2, null);
             const pick = yield vscode_1.window.showQuickPick(picks, { placeHolder });
             return pick && pick.repository;
         });
@@ -310,4 +329,4 @@ __decorate([
     decorators_1.sequentialize
 ], Model.prototype, "tryOpenRepository", null);
 exports.Model = Model;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\git\out/model.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\git\out/model.js.map

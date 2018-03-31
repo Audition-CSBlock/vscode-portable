@@ -6,7 +6,7 @@ Microsoft’s Visual Studio Code "Insiders" incorporates components from the pro
 The original copyright notices and the licenses under which Microsoft received such components are set forth below for informational purposes. Please refer to the accompanying credits file for additional notices regarding the Chromium open source project.  Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 1.	@emmetio/css-parser version 0.4.0 (https://github.com/emmetio/css-parser)
-2.	@emmetio/extract-abbreviation version 0.1.4 (https://github.com/emmetio/extract-abbreviation)
+2.	@emmetio/extract-abbreviation version 0.1.6 (https://github.com/emmetio/extract-abbreviation)
 3.	@emmetio/html-matcher version 0.3.3 (https://github.com/emmetio/html-matcher)
 4.	@emmetio/math-expression version 0.1.1 (https://github.com/emmetio/math-expression)
 5.	@emmetio/stream-reader version 2.2.0 (https://github.com/emmetio/stream-reader)
@@ -15,241 +15,277 @@ The original copyright notices and the licenses under which Microsoft received s
 8.	@types/source-map version 0.1.29 (https://www.github.com/DefinitelyTyped/DefinitelyTyped)
 9.	agent-base version 1.0.2 (https://github.com/TooTallNate/node-agent-base)
 10.	agent-base version 4.1.2 (https://github.com/TooTallNate/node-agent-base)
-11.	anymatch version 1.3.2 (https://github.com/micromatch/anymatch)
-12.	applicationinsights version 0.18.0 (https://github.com/Microsoft/ApplicationInsights-node.js)
-13.	argparse version 1.0.9 (https://github.com/nodeca/argparse)
-14.	arr-diff version 2.0.0 (https://github.com/jonschlinkert/arr-diff)
-15.	arr-flatten version 1.0.1 (https://github.com/jonschlinkert/arr-flatten)
-16.	array-unique version 0.2.1 (https://github.com/jonschlinkert/array-unique)
-17.	asap version 2.0.5 (https://github.com/kriskowal/asap)
-18.	async-each version 1.0.1 (https://github.com/paulmillr/async-each)
-19.	async-limiter version 1.0.0 (https://github.com/strml/async-limiter)
-20.	atom/language-c (https://github.com/atom/language-c)
-21.	atom/language-clojure (https://github.com/atom/language-clojure)
-22.	atom/language-coffee-script (https://github.com/atom/language-coffee-script)
-23.	atom/language-css (https://github.com/atom/language-css)
-24.	atom/language-java (https://github.com/atom/language-java)
-25.	atom/language-objective-c (https://github.com/atom/language-objective-c)
-26.	atom/language-sass version 0.52.0 (https://github.com/atom/language-sass)
-27.	atom/language-shellscript (https://github.com/atom/language-shellscript)
-28.	atom/language-xml (https://github.com/atom/language-xml)
-29.	balanced-match version 1.0.0 (https://github.com/juliangruber/balanced-match)
-30.	Benvie/JavaScriptNext.tmLanguage (https://github.com/Microsoft/vscode-JSON.tmLanguage)
-31.	binary-extensions version 1.10.0 (https://github.com/sindresorhus/binary-extensions)
-32.	bindings version 1.3.0 (https://github.com/TooTallNate/node-bindings)
-33.	brace-expansion version 1.1.8 (https://github.com/juliangruber/brace-expansion)
-34.	braces version 1.8.5 (https://github.com/micromatch/braces)
-35.	buffer-crc32 version 0.2.13 (https://github.com/brianloveswords/buffer-crc32)
-36.	byline version 5.0.0 (https://github.com/jahewson/node-byline)
-37.	chjj-marked version 0.3.6 (https://github.com/npmcomponent/chjj-marked)
-38.	chriskempson/tomorrow-theme (https://github.com/chriskempson/tomorrow-theme)
-39.	chrome-remote-interface version 0.25.3 (https://github.com/cyrus-and/chrome-remote-interface)
-40.	chromium version 58.0.3029.110 (http://www.chromium.org/Home)
-41.	Colorsublime-Themes version 0.1.0 (https://github.com/Colorsublime/Colorsublime-Themes)
-42.	commander version 2.11.0 (https://github.com/tj/commander.js)
-43.	concat-map version 0.0.1 (https://github.com/substack/node-concat-map)
-44.	core-util-is version 1.0.2 (https://github.com/isaacs/core-util-is)
-45.	daaain/Handlebars (https://github.com/daaain/Handlebars)
-46.	davidrios/jade-tmbundle (https://github.com/davidrios/jade-tmbundle)
-47.	debug version 2.2.0 (https://github.com/visionmedia/debug)
-48.	debug version 2.6.9 (https://github.com/visionmedia/debug)
-49.	debug version 3.1.0 (https://github.com/visionmedia/debug)
-50.	definitelytyped (https://github.com/DefinitelyTyped/DefinitelyTyped)
-51.	demyte/language-cshtml (https://github.com/demyte/language-cshtml)
-52.	dotnet/csharp-tmLanguage version 0.1.0 (https://github.com/dotnet/csharp-tmLanguage)
-53.	electron version 1.7.3 (https://github.com/electron/electron)
-54.	entities version 1.1.1 (https://github.com/fb55/entities)
-55.	es6-promise version 4.1.1 (https://github.com/stefanpenner/es6-promise)
-56.	es6-promisify version 5.0.0 (https://github.com/digitaldesignlabs/es6-promisify)
-57.	expand-abbreviation version 0.5.8 (https://github.com/emmetio/expand-abbreviation)
-58.	expand-brackets version 0.1.5 (https://github.com/micromatch/expand-brackets)
-59.	expand-range version 1.8.2 (https://github.com/jonschlinkert/expand-range)
-60.	extend version 3.0.0 (https://github.com/justmoon/node-extend)
-61.	extend version 3.0.1 (https://github.com/justmoon/node-extend)
-62.	extglob version 0.3.2 (https://github.com/micromatch/extglob)
-63.	extract-opts version 2.2.0 (https://github.com/bevry/extract-opts)
-64.	fadeevab/make.tmbundle (https://github.com/fadeevab/make.tmbundle)
-65.	fast-plist version 0.1.2 (https://github.com/Microsoft/node-fast-plist)
-66.	fd-slicer version 1.0.1 (https://github.com/andrewrk/node-fd-slicer)
-67.	file-type version 7.2.0 (https://github.com/sindresorhus/file-type)
-68.	filename-regex version 2.0.0 (https://github.com/regexhq/filename-regex)
-69.	fill-range version 2.2.3 (https://github.com/jonschlinkert/fill-range)
-70.	for-in version 0.1.5 (https://github.com/jonschlinkert/for-in)
-71.	for-own version 0.1.4 (https://github.com/jonschlinkert/for-own)
-72.	freebroccolo/atom-language-swift (https://github.com/freebroccolo/atom-language-swift)
-73.	fs-extra version 0.26.7 (https://github.com/jprichardson/node-fs-extra)
-74.	fs.realpath version 1.0.0 (https://github.com/isaacs/fs.realpath)
-75.	gc-signals version 0.0.1 (https://github.com/Microsoft/node-gc-signals)
-76.	getmac version 1.0.7 (https://github.com/bevry/getmac)
-77.	glob version 7.1.2 (https://github.com/isaacs/node-glob)
-78.	glob-base version 0.3.0 (https://github.com/micromatch/glob-base)
-79.	glob-parent version 2.0.0 (https://github.com/es128/glob-parent)
-80.	graceful-fs version 4.1.11 (https://github.com/isaacs/node-graceful-fs)
-81.	highlight.js version 9.5.0 (https://github.com/isagalaev/highlight.js)
-82.	HTML 5.1 W3C Working Draft version 08 October 2015 (http://www.w3.org/TR/2015/WD-html51-20151008/)
-83.	http-proxy-agent version 0.2.7 (https://github.com/TooTallNate/node-http-proxy-agent)
-84.	http-proxy-agent version 2.0.0 (https://github.com/TooTallNate/node-http-proxy-agent)
-85.	https-proxy-agent version 0.3.6 (https://github.com/TooTallNate/node-https-proxy-agent)
-86.	https-proxy-agent version 2.1.1 (https://github.com/TooTallNate/node-https-proxy-agent)
-87.	iconv-lite version 0.4.19 (https://github.com/ashtuchkin/iconv-lite)
-88.	Ikuyadeu/vscode-R (https://github.com/Ikuyadeu/vscode-R)
-89.	image-size version 0.5.5 (https://github.com/image-size/image-size)
-90.	inflight version 1.0.6 (https://github.com/npm/inflight)
-91.	inherits version 2.0.3 (https://github.com/isaacs/inherits)
-92.	inno setup version 5.5.6 (https://github.com/jrsoftware/issrc)
-93.	Ionic documentation version 1.2.4 (https://github.com/ionic-team/ionic-site)
-94.	ionide/ionide-fsgrammar (https://github.com/ionide/ionide-fsgrammar)
-95.	is-binary-path version 1.0.1 (https://github.com/sindresorhus/is-binary-path)
-96.	is-buffer version 1.1.4 (https://github.com/feross/is-buffer)
-97.	is-dotfile version 1.0.2 (https://github.com/jonschlinkert/is-dotfile)
-98.	is-equal-shallow version 0.1.3 (https://github.com/jonschlinkert/is-equal-shallow)
-99.	is-extendable version 0.1.1 (https://github.com/jonschlinkert/is-extendable)
-100.	is-extglob version 1.0.0 (https://github.com/micromatch/is-extglob)
-101.	is-glob version 2.0.1 (https://github.com/micromatch/is-glob)
-102.	is-number version 2.1.0 (https://github.com/jonschlinkert/is-number)
-103.	is-posix-bracket version 0.1.1 (https://github.com/micromatch/is-posix-bracket)
-104.	is-primitive version 2.0.0 (https://github.com/jonschlinkert/is-primitive)
-105.	isarray version 1.0.0 (https://github.com/juliangruber/isarray)
-106.	isexe version 2.0.0 (https://github.com/isaacs/isexe)
-107.	isobject version 2.1.0 (https://github.com/jonschlinkert/isobject)
-108.	js-beautify version 1.6.8 (https://github.com/beautify-web/js-beautify)
-109.	jschardet version 1.6.0 (https://github.com/aadsm/jschardet)
-110.	jsonc-parser version 1.0.0 (https://github.com/Microsoft/node-jsonc-parser)
-111.	jsonfile version 2.4.0 (https://github.com/jprichardson/node-jsonfile)
-112.	keytar version 4.0.5 (https://github.com/atom/node-keytar)
-113.	kind-of version 3.0.4 (https://github.com/jonschlinkert/kind-of)
-114.	klaw version 1.3.1 (https://github.com/jprichardson/node-klaw)
-115.	language-docker (https://github.com/moby/moby)
-116.	language-go version 0.39.0 (https://github.com/atom/language-go)
-117.	language-less (https://github.com/atom/language-less)
-118.	language-php (https://github.com/atom/language-php)
-119.	language-rust version 0.4.9 (https://github.com/zargony/atom-language-rust)
-120.	lib-oniguruma version 5.9.3 (https://github.com/kkos/oniguruma)
-121.	libchromiumcontent version 58.0.3029.110 (https://github.com/electron/libchromiumcontent)
-122.	linkify-it version 2.0.3 (https://github.com/markdown-it/linkify-it)
-123.	lodash.isinteger version 4.0.4 (https://github.com/lodash/lodash)
-124.	lodash.isundefined version 3.0.1 (https://github.com/lodash/lodash)
-125.	MagicStack/MagicPython (https://github.com/MagicStack/MagicPython)
-126.	markdown-it version 8.4.0 (https://github.com/markdown-it/markdown-it)
-127.	markdown-it-named-headers version 0.0.4 (https://github.com/leff/markdown-it-named-headers)
-128.	mdurl version 1.0.1 (https://github.com/markdown-it/mdurl)
-129.	micromatch version 2.3.11 (https://github.com/micromatch/micromatch)
-130.	Microsoft/TypeScript-TmLanguage version 0.0.1 (https://github.com/Microsoft/TypeScript-TmLanguage)
-131.	Microsoft/vscode-mssql (https://github.com/Microsoft/vscode-mssql)
-132.	minimatch version 3.0.4 (https://github.com/isaacs/minimatch)
-133.	minimist version 0.0.8 (https://github.com/substack/minimist)
-134.	minimist version 1.2.0 (https://github.com/substack/minimist)
-135.	mkdirp version 0.5.1 (https://github.com/substack/node-mkdirp)
-136.	mmims/language-batchfile (https://github.com/mmims/language-batchfile)
-137.	ms version 0.7.1 (https://github.com/zeit/ms)
-138.	ms version 2.0.0 (https://github.com/zeit/ms)
-139.	nan version 2.4.0 (https://github.com/nodejs/nan)
-140.	nan version 2.5.1 (https://github.com/nodejs/nan)
-141.	nan version 2.6.2 (https://github.com/nodejs/nan)
-142.	nan version 2.7.0 (https://github.com/nodejs/nan)
-143.	nan version 2.8.0 (https://github.com/nodejs/nan)
-144.	native-is-elevated version 0.2.1 (https://github.com/arkon/native-is-elevated)
-145.	native-keymap version 1.2.5 (https://github.com/Microsoft/node-native-keymap)
-146.	native-watchdog version 0.3.0 (https://github.com/Microsoft/node-native-watchdog)
-147.	node-pty version 0.7.4 (https://github.com/Tyriar/node-pty)
-148.	nodegit-promise version 4.0.0 (https://github.com/nodegit/promise)
-149.	nodejs version 7.9.0 (https://github.com/nodejs/node)
-150.	noice-json-rpc version 1.0.1 (https://github.com/nojvek/noice-json-rpc)
-151.	normalize-path version 2.0.1 (https://github.com/jonschlinkert/normalize-path)
-152.	normalize-path version 2.1.1 (https://github.com/jonschlinkert/normalize-path)
-153.	nsfw version 1.0.16 (https://github.com/Axosoft/nsfw)
-154.	object.omit version 2.0.0 (https://github.com/jonschlinkert/object.omit)
-155.	octicons-code version 3.1.0 (https://octicons.github.com)
-156.	octicons-font version 3.1.0 (https://octicons.github.com)
-157.	once version 1.4.0 (https://github.com/isaacs/once)
-158.	oniguruma version 6.1.1 (https://github.com/atom/node-oniguruma)
-159.	parse-glob version 3.0.4 (https://github.com/micromatch/parse-glob)
-160.	parse5 version 3.0.2 (https://github.com/inikulin/parse5)
-161.	path-is-absolute version 1.0.1 (https://github.com/sindresorhus/path-is-absolute)
-162.	pend version 1.2.0 (https://github.com/andrewrk/node-pend)
-163.	preserve version 0.2.0 (https://github.com/jonschlinkert/preserve)
-164.	process-nextick-args version 1.0.7 (https://github.com/calvinmetcalf/process-nextick-args)
-165.	promisify-node version 0.3.0 (https://github.com/nodegit/promisify-node)
-166.	randomatic version 1.1.5 (https://github.com/jonschlinkert/randomatic)
-167.	readable-stream version 2.3.3 (https://github.com/nodejs/readable-stream)
-168.	readdirp version 2.1.0 (https://github.com/thlorenz/readdirp)
-169.	regex-cache version 0.4.3 (https://github.com/jonschlinkert/regex-cache)
-170.	remove-trailing-separator version 1.1.0 (https://github.com/darsain/remove-trailing-separator)
-171.	repeat-element version 1.1.2 (https://github.com/jonschlinkert/repeat-element)
-172.	repeat-string version 1.5.4 (https://github.com/jonschlinkert/repeat-string)
-173.	request-light version 0.2.1 (https://github.com/Microsoft/node-request-light)
-174.	request-light version 0.2.2 (https://github.com/Microsoft/node-request-light)
-175.	rimraf version 2.6.1 (https://github.com/isaacs/rimraf)
-176.	safe-buffer version 5.1.1 (https://github.com/feross/safe-buffer)
-177.	semver version 4.3.6 (https://github.com/npm/node-semver)
-178.	set-immediate-shim version 1.0.1 (https://github.com/sindresorhus/set-immediate-shim)
-179.	seti-ui version 0.1.0 (https://github.com/jesseweed/seti-ui)
-180.	shaders-tmLanguage version 0.1.0 (https://github.com/tgjones/shaders-tmLanguage)
-181.	source-map version 0.6.1 (https://github.com/mozilla/source-map)
-182.	spdlog version 0.6.0 (https://github.com/Microsoft/node-spdlog)
-183.	spdlog original version 0.14.0 (https://github.com/gabime/spdlog)
-184.	sprintf-js version 1.0.3 (https://github.com/alexei/sprintf.js)
-185.	string version 3.3.1 (https://github.com/jprichardson/string.js)
-186.	string_decoder version 1.0.3 (https://github.com/nodejs/string_decoder)
-187.	SublimeText/PowerShell (https://github.com/SublimeText/PowerShell)
-188.	sudo-prompt version 8.0.0 (https://github.com/jorangreef/sudo-prompt)
-189.	textmate/asp.vb.net.tmbundle (https://github.com/textmate/asp.vb.net.tmbundle)
-190.	textmate/c.tmbundle (https://github.com/textmate/c.tmbundle)
-191.	textmate/diff.tmbundle (https://github.com/textmate/diff.tmbundle)
-192.	textmate/git.tmbundle (https://github.com/textmate/git.tmbundle)
-193.	textmate/groovy.tmbundle (https://github.com/textmate/groovy.tmbundle)
-194.	textmate/html.tmbundle (https://github.com/textmate/html.tmbundle)
-195.	textmate/ini.tmbundle (https://github.com/textmate/ini.tmbundle)
-196.	textmate/javascript.tmbundle (https://github.com/textmate/javascript.tmbundle)
-197.	textmate/lua.tmbundle (https://github.com/textmate/lua.tmbundle)
-198.	textmate/markdown.tmbundle (https://github.com/textmate/markdown.tmbundle)
-199.	textmate/perl.tmbundle (https://github.com/textmate/perl.tmbundle)
-200.	textmate/ruby.tmbundle (https://github.com/textmate/ruby.tmbundle)
-201.	textmate/yaml.tmbundle (https://github.com/textmate/yaml.tmbundle)
-202.	typechecker version 2.0.8 (https://github.com/bevry/typechecker)
-203.	typescript version 2.6.2 (https://github.com/Microsoft/TypeScript)
-204.	TypeScript-TmLanguage version 0.1.8 (https://github.com/Microsoft/TypeScript-TmLanguage)
-205.	uc.micro version 1.0.3 (https://github.com/markdown-it/uc.micro)
-206.	ultron version 1.1.0 (https://github.com/unshiftio/ultron)
-207.	ultron version 1.1.1 (https://github.com/unshiftio/ultron)
-208.	util-deprecate version 1.0.2 (https://github.com/TooTallNate/util-deprecate)
-209.	v8-inspect-profiler version 0.0.7 (https://github.com/jrieken/v8-inspect-profiler)
-210.	vscode-chokidar version 1.6.2 (https://github.com/bpasero/chokidar)
-211.	vscode-chrome-debug-core version 3.22.4 (https://github.com/Microsoft/vscode-chrome-debug-core)
-212.	vscode-css-languageservice version 3.0.5 (https://github.com/Microsoft/vscode-css-languageservice)
-213.	vscode-debugadapter version 1.26.0 (https://github.com/Microsoft/vscode-debugadapter-node)
-214.	vscode-debugadapter version 1.26.0-pre.2 (https://github.com/Microsoft/vscode-debugadapter-node)
-215.	vscode-debugprotocol version 1.25.0 (https://github.com/Microsoft/vscode-debugadapter-node)
-216.	vscode-debugprotocol version 1.25.0-pre.3 (https://github.com/Microsoft/vscode-debugadapter-node)
-217.	vscode-debugprotocol version 1.26.0 (https://github.com/Microsoft/vscode-debugadapter-node)
-218.	vscode-emmet-helper version 1.1.24 (https://github.com/Microsoft/vscode-emmet-helper)
-219.	vscode-extension-telemetry version 0.0.8 (https://github.com/Microsoft/vscode-extension-telemetry)
-220.	vscode-fsevents version 0.3.8 (https://github.com/bpasero/fsevents)
-221.	vscode-html-languageservice version 2.0.15 (https://github.com/Microsoft/vscode-html-languageservice)
-222.	vscode-json-languageservice version 3.0.4 (https://github.com/Microsoft/vscode-json-languageservice)
-223.	vscode-jsonrpc version 3.5.0 (https://github.com/Microsoft/vscode-languageserver-node)
-224.	vscode-languageclient version 3.5.0 (https://github.com/Microsoft/vscode-languageserver-node)
-225.	vscode-languageserver version 3.5.0 (https://github.com/Microsoft/vscode-languageserver-node)
-226.	vscode-languageserver-protocol version 3.5.0 (https://github.com/Microsoft/vscode-languageserver-node)
-227.	vscode-languageserver-types version 3.3.0 (https://github.com/Microsoft/vscode-languageserver-node)
-228.	vscode-languageserver-types version 3.5.0 (https://github.com/Microsoft/vscode-languageserver-node)
-229.	vscode-logfile-highlighter version 1.2.0 (https://github.com/emilast/vscode-logfile-highlighter)
-230.	vscode-nls version 2.0.2 (https://github.com/Microsoft/vscode-nls)
-231.	vscode-nls version 3.2.1 (https://github.com/Microsoft/vscode-nls)
-232.	vscode-ripgrep version 0.7.1-patch.0 (https://github.com/roblourens/vscode-ripgrep)
-233.	vscode-swift version 0.0.1 (https://github.com/owensd/vscode-swift)
-234.	vscode-textmate version 3.2.0 (https://github.com/Microsoft/vscode-textmate)
-235.	vscode-uri version 1.0.1 (https://github.com/Microsoft/vscode-uri)
-236.	vscode-xterm version 3.1.0-beta15 (https://github.com/xtermjs/xterm.js)
-237.	which version 1.3.0 (https://github.com/npm/node-which)
-238.	windows-foreground-love version 0.1.0 (https://github.com/the-ress/node-windows-foreground-love)
-239.	windows-mutex version 0.2.0 (https://github.com/Microsoft/node-windows-mutex)
-240.	windows-process-tree version 0.1.6 (https://github.com/Microsoft/vscode-windows-process-tree)
-241.	winreg version 1.2.3 (https://github.com/fresc81/node-winreg)
-242.	wrappy version 1.0.2 (https://github.com/npm/wrappy)
-243.	ws version 3.3.2 (https://github.com/websockets/ws)
-244.	ws version 3.3.3 (https://github.com/websockets/ws)
-245.	yauzl version 2.8.0 (https://github.com/thejoshwolfe/yauzl)
+11.	agent-base version 4.2.0 (https://github.com/TooTallNate/node-agent-base)
+12.	Amanieu/thread_local-rs version 0.3.5 ()
+13.	anymatch version 1.3.2 (https://github.com/micromatch/anymatch)
+14.	applicationinsights version 0.18.0 (https://github.com/Microsoft/ApplicationInsights-node.js)
+15.	applicationinsights version 1.0.1 (https://github.com/Microsoft/ApplicationInsights-node.js)
+16.	argparse version 1.0.9 (https://github.com/nodeca/argparse)
+17.	arr-diff version 2.0.0 (https://github.com/jonschlinkert/arr-diff)
+18.	arr-flatten version 1.0.1 (https://github.com/jonschlinkert/arr-flatten)
+19.	array-unique version 0.2.1 (https://github.com/jonschlinkert/array-unique)
+20.	asap version 2.0.5 (https://github.com/kriskowal/asap)
+21.	async-each version 1.0.1 (https://github.com/paulmillr/async-each)
+22.	async-limiter version 1.0.0 (https://github.com/strml/async-limiter)
+23.	atom/language-c (https://github.com/atom/language-c)
+24.	atom/language-clojure (https://github.com/atom/language-clojure)
+25.	atom/language-coffee-script (https://github.com/atom/language-coffee-script)
+26.	atom/language-css (https://github.com/atom/language-css)
+27.	atom/language-java (https://github.com/atom/language-java)
+28.	atom/language-objective-c (https://github.com/atom/language-objective-c)
+29.	atom/language-sass version 0.52.0 (https://github.com/atom/language-sass)
+30.	atom/language-shellscript (https://github.com/atom/language-shellscript)
+31.	atom/language-xml (https://github.com/atom/language-xml)
+32.	balanced-match version 1.0.0 (https://github.com/juliangruber/balanced-match)
+33.	Benvie/JavaScriptNext.tmLanguage (https://github.com/Microsoft/vscode-JSON.tmLanguage)
+34.	binary-extensions version 1.10.0 (https://github.com/sindresorhus/binary-extensions)
+35.	bindings version 1.3.0 (https://github.com/TooTallNate/node-bindings)
+36.	brace-expansion version 1.1.11 (https://github.com/juliangruber/brace-expansion)
+37.	brace-expansion version 1.1.8 (https://github.com/juliangruber/brace-expansion)
+38.	braces version 1.8.5 (https://github.com/micromatch/braces)
+39.	buffer-crc32 version 0.2.13 (https://github.com/brianloveswords/buffer-crc32)
+40.	BurntSushi/byteorder version 1.2.1 ()
+41.	byline version 5.0.0 (https://github.com/jahewson/node-byline)
+42.	chjj-marked version 0.3.12 (https://github.com/npmcomponent/chjj-marked)
+43.	chriskempson/tomorrow-theme (https://github.com/chriskempson/tomorrow-theme)
+44.	chrome-remote-interface version 0.25.3 (https://github.com/cyrus-and/chrome-remote-interface)
+45.	chromium version 58.0.3029.110 (http://www.chromium.org/Home)
+46.	chronotope/chrono version 0.4.0 ()
+47.	Colorsublime-Themes version 0.1.0 (https://github.com/Colorsublime/Colorsublime-Themes)
+48.	commander version 2.11.0 (https://github.com/tj/commander.js)
+49.	concat-map version 0.0.1 (https://github.com/substack/node-concat-map)
+50.	core-util-is version 1.0.2 (https://github.com/isaacs/core-util-is)
+51.	daaain/Handlebars (https://github.com/daaain/Handlebars)
+52.	davidrios/jade-tmbundle (https://github.com/davidrios/jade-tmbundle)
+53.	debug version 2.2.0 (https://github.com/visionmedia/debug)
+54.	debug version 2.6.9 (https://github.com/visionmedia/debug)
+55.	debug version 3.1.0 (https://github.com/visionmedia/debug)
+56.	definitelytyped (https://github.com/DefinitelyTyped/DefinitelyTyped)
+57.	demyte/language-cshtml (https://github.com/demyte/language-cshtml)
+58.	diagnostic-channel version 0.2.0 (https://github.com/Microsoft/node-diagnostic-channel)
+59.	diagnostic-channel-publishers version 0.2.1 (https://github.com/Microsoft/node-diagnostic-channel)
+60.	dotnet/csharp-tmLanguage version 0.1.0 (https://github.com/dotnet/csharp-tmLanguage)
+61.	dtolnay/isatty version 0.1.6 ()
+62.	electron version 1.7.3 (https://github.com/electron/electron)
+63.	entities version 1.1.1 (https://github.com/fb55/entities)
+64.	es6-promise version 4.1.1 (https://github.com/stefanpenner/es6-promise)
+65.	es6-promise version 4.2.4 (https://github.com/stefanpenner/es6-promise)
+66.	es6-promisify version 5.0.0 (https://github.com/digitaldesignlabs/es6-promisify)
+67.	expand-abbreviation version 0.5.8 (https://github.com/emmetio/expand-abbreviation)
+68.	expand-brackets version 0.1.5 (https://github.com/micromatch/expand-brackets)
+69.	expand-range version 1.8.2 (https://github.com/jonschlinkert/expand-range)
+70.	extend version 3.0.0 (https://github.com/justmoon/node-extend)
+71.	extglob version 0.3.2 (https://github.com/micromatch/extglob)
+72.	extract-opts version 2.2.0 (https://github.com/bevry/extract-opts)
+73.	fadeevab/make.tmbundle (https://github.com/fadeevab/make.tmbundle)
+74.	fast-plist version 0.1.2 (https://github.com/Microsoft/node-fast-plist)
+75.	fd-slicer version 1.0.1 (https://github.com/andrewrk/node-fd-slicer)
+76.	file-type version 7.2.0 (https://github.com/sindresorhus/file-type)
+77.	filename-regex version 2.0.0 (https://github.com/regexhq/filename-regex)
+78.	fill-range version 2.2.3 (https://github.com/jonschlinkert/fill-range)
+79.	for-in version 0.1.5 (https://github.com/jonschlinkert/for-in)
+80.	for-own version 0.1.4 (https://github.com/jonschlinkert/for-own)
+81.	freebroccolo/atom-language-swift (https://github.com/freebroccolo/atom-language-swift)
+82.	fs-extra version 0.26.7 (https://github.com/jprichardson/node-fs-extra)
+83.	fs.realpath version 1.0.0 (https://github.com/isaacs/fs.realpath)
+84.	gc-signals version 0.0.1 (https://github.com/Microsoft/node-gc-signals)
+85.	getmac version 1.0.7 (https://github.com/bevry/getmac)
+86.	glob version 7.1.2 (https://github.com/isaacs/node-glob)
+87.	glob-base version 0.3.0 (https://github.com/micromatch/glob-base)
+88.	glob-parent version 2.0.0 (https://github.com/es128/glob-parent)
+89.	graceful-fs version 4.1.11 (https://github.com/isaacs/node-graceful-fs)
+90.	highlight.js version 9.5.0 (https://github.com/isagalaev/highlight.js)
+91.	HTML 5.1 W3C Working Draft version 08 October 2015 (http://www.w3.org/TR/2015/WD-html51-20151008/)
+92.	http-proxy-agent version 0.2.7 (https://github.com/TooTallNate/node-http-proxy-agent)
+93.	http-proxy-agent version 2.0.0 (https://github.com/TooTallNate/node-http-proxy-agent)
+94.	https-proxy-agent version 0.3.6 (https://github.com/TooTallNate/node-https-proxy-agent)
+95.	https-proxy-agent version 2.1.1 (https://github.com/TooTallNate/node-https-proxy-agent)
+96.	iconv-lite version 0.4.19 (https://github.com/ashtuchkin/iconv-lite)
+97.	Ikuyadeu/vscode-R (https://github.com/Ikuyadeu/vscode-R)
+98.	image-size version 0.5.5 (https://github.com/image-size/image-size)
+99.	inflight version 1.0.6 (https://github.com/npm/inflight)
+100.	inherits version 2.0.3 (https://github.com/isaacs/inherits)
+101.	inno setup version 5.5.6 (https://github.com/jrsoftware/issrc)
+102.	Ionic documentation version 1.2.4 (https://github.com/ionic-team/ionic-site)
+103.	ionide/ionide-fsgrammar (https://github.com/ionide/ionide-fsgrammar)
+104.	is-binary-path version 1.0.1 (https://github.com/sindresorhus/is-binary-path)
+105.	is-buffer version 1.1.4 (https://github.com/feross/is-buffer)
+106.	is-dotfile version 1.0.2 (https://github.com/jonschlinkert/is-dotfile)
+107.	is-equal-shallow version 0.1.3 (https://github.com/jonschlinkert/is-equal-shallow)
+108.	is-extendable version 0.1.1 (https://github.com/jonschlinkert/is-extendable)
+109.	is-extglob version 1.0.0 (https://github.com/micromatch/is-extglob)
+110.	is-glob version 2.0.1 (https://github.com/micromatch/is-glob)
+111.	is-number version 2.1.0 (https://github.com/jonschlinkert/is-number)
+112.	is-posix-bracket version 0.1.1 (https://github.com/micromatch/is-posix-bracket)
+113.	is-primitive version 2.0.0 (https://github.com/jonschlinkert/is-primitive)
+114.	isarray version 1.0.0 (https://github.com/juliangruber/isarray)
+115.	isexe version 2.0.0 (https://github.com/isaacs/isexe)
+116.	isobject version 2.1.0 (https://github.com/jonschlinkert/isobject)
+117.	js-beautify version 1.6.8 (https://github.com/beautify-web/js-beautify)
+118.	jschardet version 1.6.0 (https://github.com/aadsm/jschardet)
+119.	jsonc-parser version 1.0.0 (https://github.com/Microsoft/node-jsonc-parser)
+120.	jsonc-parser version 1.0.1 (https://github.com/Microsoft/node-jsonc-parser)
+121.	jsonfile version 2.4.0 (https://github.com/jprichardson/node-jsonfile)
+122.	keytar version 4.0.5 (https://github.com/atom/node-keytar)
+123.	kind-of version 3.0.4 (https://github.com/jonschlinkert/kind-of)
+124.	klaw version 1.3.1 (https://github.com/jprichardson/node-klaw)
+125.	language-docker (https://github.com/moby/moby)
+126.	language-go version 0.39.0 (https://github.com/atom/language-go)
+127.	language-less (https://github.com/atom/language-less)
+128.	language-php (https://github.com/atom/language-php)
+129.	language-rust version 0.4.9 (https://github.com/zargony/atom-language-rust)
+130.	lib-oniguruma version 5.9.3 (https://github.com/kkos/oniguruma)
+131.	libchromiumcontent version 58.0.3029.110 (https://github.com/electron/libchromiumcontent)
+132.	linkify-it version 2.0.3 (https://github.com/markdown-it/linkify-it)
+133.	lodash.isinteger version 4.0.4 (https://github.com/lodash/lodash)
+134.	lodash.isundefined version 3.0.1 (https://github.com/lodash/lodash)
+135.	MagicStack/MagicPython (https://github.com/MagicStack/MagicPython)
+136.	markdown-it version 8.4.0 (https://github.com/markdown-it/markdown-it)
+137.	markdown-it-named-headers version 0.0.4 (https://github.com/leff/markdown-it-named-headers)
+138.	mdurl version 1.0.1 (https://github.com/markdown-it/mdurl)
+139.	micromatch version 2.3.11 (https://github.com/micromatch/micromatch)
+140.	Microsoft/TypeScript-TmLanguage version 0.0.1 (https://github.com/Microsoft/TypeScript-TmLanguage)
+141.	Microsoft/vscode-mssql (https://github.com/Microsoft/vscode-mssql)
+142.	minimatch version 3.0.4 (https://github.com/isaacs/minimatch)
+143.	minimist version 0.0.8 (https://github.com/substack/minimist)
+144.	minimist version 1.2.0 (https://github.com/substack/minimist)
+145.	mkdirp version 0.5.1 (https://github.com/substack/node-mkdirp)
+146.	mmims/language-batchfile (https://github.com/mmims/language-batchfile)
+147.	mrhooray/crc-rs version 1.7.0 ()
+148.	ms version 0.7.1 (https://github.com/zeit/ms)
+149.	ms version 2.0.0 (https://github.com/zeit/ms)
+150.	nan version 2.4.0 (https://github.com/nodejs/nan)
+151.	nan version 2.5.1 (https://github.com/nodejs/nan)
+152.	nan version 2.6.2 (https://github.com/nodejs/nan)
+153.	nan version 2.7.0 (https://github.com/nodejs/nan)
+154.	nan version 2.8.0 (https://github.com/nodejs/nan)
+155.	native-is-elevated version 0.2.1 (https://github.com/arkon/native-is-elevated)
+156.	native-keymap version 1.2.5 (https://github.com/Microsoft/node-native-keymap)
+157.	native-watchdog version 0.3.0 (https://github.com/Microsoft/node-native-watchdog)
+158.	node-pty version 0.7.4 (https://github.com/Tyriar/node-pty)
+159.	nodegit-promise version 4.0.0 (https://github.com/nodegit/promise)
+160.	nodejs version 7.9.0 (https://github.com/nodejs/node)
+161.	noice-json-rpc version 1.0.1 (https://github.com/nojvek/noice-json-rpc)
+162.	normalize-path version 2.0.1 (https://github.com/jonschlinkert/normalize-path)
+163.	normalize-path version 2.1.1 (https://github.com/jonschlinkert/normalize-path)
+164.	nsfw version 1.0.16 (https://github.com/Axosoft/nsfw)
+165.	object.omit version 2.0.0 (https://github.com/jonschlinkert/object.omit)
+166.	octicons-code version 3.1.0 (https://octicons.github.com)
+167.	octicons-font version 3.1.0 (https://octicons.github.com)
+168.	once version 1.4.0 (https://github.com/isaacs/once)
+169.	oniguruma version 6.1.1 (https://github.com/atom/node-oniguruma)
+170.	parse-glob version 3.0.4 (https://github.com/micromatch/parse-glob)
+171.	parse5 version 3.0.2 (https://github.com/inikulin/parse5)
+172.	path-is-absolute version 1.0.1 (https://github.com/sindresorhus/path-is-absolute)
+173.	pend version 1.2.0 (https://github.com/andrewrk/node-pend)
+174.	PowerShell/EditorSyntax (https://github.com/powershell/editorsyntax)
+175.	preserve version 0.2.0 (https://github.com/jonschlinkert/preserve)
+176.	process-nextick-args version 1.0.7 (https://github.com/calvinmetcalf/process-nextick-args)
+177.	promisify-node version 0.3.0 (https://github.com/nodegit/promisify-node)
+178.	randomatic version 1.1.5 (https://github.com/jonschlinkert/randomatic)
+179.	readable-stream version 2.3.3 (https://github.com/nodejs/readable-stream)
+180.	readdirp version 2.1.0 (https://github.com/thlorenz/readdirp)
+181.	redox-os/syscall version 0.1.37 ()
+182.	redox-os/termios version 0.1.1 ()
+183.	reem/rust-unreachable version 1.0.0 ()
+184.	reem/rust-void version 1.0.2 ()
+185.	regex-cache version 0.4.3 (https://github.com/jonschlinkert/regex-cache)
+186.	remove-trailing-separator version 1.1.0 (https://github.com/darsain/remove-trailing-separator)
+187.	repeat-element version 1.1.2 (https://github.com/jonschlinkert/repeat-element)
+188.	repeat-string version 1.5.4 (https://github.com/jonschlinkert/repeat-string)
+189.	request-light version 0.2.2 (https://github.com/Microsoft/node-request-light)
+190.	retep998/winapi-rs version 0.1.1 ()
+191.	retep998/winapi-rs version 0.2.2 ()
+192.	retep998/winapi-rs version 0.2.8 ()
+193.	retep998/winapi-rs version 0.3.4 ()
+194.	retep998/winapi-rs version 0.4.0 ()
+195.	rimraf version 2.6.1 (https://github.com/isaacs/rimraf)
+196.	rust-lang-nursery/lazy-static.rs version 1.0.0 ()
+197.	rust-lang/libc version 0.2.36 ()
+198.	rust-lang/time version 0.1.39 ()
+199.	rust-num/num version 0.1.41 ()
+200.	rust-num/num-integer version 0.1.35 ()
+201.	rust-num/num-iter version 0.1.34 ()
+202.	rust-num/num-traits version 0.1.42 ()
+203.	safe-buffer version 5.1.1 (https://github.com/feross/safe-buffer)
+204.	semver version 4.3.6 (https://github.com/npm/node-semver)
+205.	semver version 5.5.0 (https://github.com/npm/node-semver)
+206.	set-immediate-shim version 1.0.1 (https://github.com/sindresorhus/set-immediate-shim)
+207.	seti-ui version 0.1.0 (https://github.com/jesseweed/seti-ui)
+208.	Sgeo/take_mut version 0.2.0 ()
+209.	shaders-tmLanguage version 0.1.0 (https://github.com/tgjones/shaders-tmLanguage)
+210.	slog-rs/async version 2.2.0 ()
+211.	slog-rs/slog version 2.1.1 ()
+212.	slog-rs/term version 2.3.0 ()
+213.	source-map version 0.6.1 (https://github.com/mozilla/source-map)
+214.	spdlog version 0.6.0 (https://github.com/Microsoft/node-spdlog)
+215.	spdlog original version 0.14.0 (https://github.com/gabime/spdlog)
+216.	sprintf-js version 1.0.3 (https://github.com/alexei/sprintf.js)
+217.	Stebalien/term version 0.4.6 ()
+218.	string version 3.3.1 (https://github.com/jprichardson/string.js)
+219.	string_decoder version 1.0.3 (https://github.com/nodejs/string_decoder)
+220.	sudo-prompt version 8.0.0 (https://github.com/jorangreef/sudo-prompt)
+221.	textmate/asp.vb.net.tmbundle (https://github.com/textmate/asp.vb.net.tmbundle)
+222.	textmate/c.tmbundle (https://github.com/textmate/c.tmbundle)
+223.	textmate/diff.tmbundle (https://github.com/textmate/diff.tmbundle)
+224.	textmate/git.tmbundle (https://github.com/textmate/git.tmbundle)
+225.	textmate/groovy.tmbundle (https://github.com/textmate/groovy.tmbundle)
+226.	textmate/html.tmbundle (https://github.com/textmate/html.tmbundle)
+227.	textmate/ini.tmbundle (https://github.com/textmate/ini.tmbundle)
+228.	textmate/javascript.tmbundle (https://github.com/textmate/javascript.tmbundle)
+229.	textmate/lua.tmbundle (https://github.com/textmate/lua.tmbundle)
+230.	textmate/markdown.tmbundle (https://github.com/textmate/markdown.tmbundle)
+231.	textmate/perl.tmbundle (https://github.com/textmate/perl.tmbundle)
+232.	textmate/ruby.tmbundle (https://github.com/textmate/ruby.tmbundle)
+233.	textmate/yaml.tmbundle (https://github.com/textmate/yaml.tmbundle)
+234.	ticki/termion version 1.5.1 ()
+235.	typechecker version 2.0.8 (https://github.com/bevry/typechecker)
+236.	typescript version 2.6.2 (https://github.com/Microsoft/TypeScript)
+237.	TypeScript-TmLanguage version 0.1.8 (https://github.com/Microsoft/TypeScript-TmLanguage)
+238.	uc.micro version 1.0.3 (https://github.com/markdown-it/uc.micro)
+239.	ultron version 1.1.0 (https://github.com/unshiftio/ultron)
+240.	ultron version 1.1.1 (https://github.com/unshiftio/ultron)
+241.	util-deprecate version 1.0.2 (https://github.com/TooTallNate/util-deprecate)
+242.	v8-inspect-profiler version 0.0.7 (https://github.com/jrieken/v8-inspect-profiler)
+243.	vitiral/build_const version 0.2.0 ()
+244.	vscode-chokidar version 1.6.2 (https://github.com/bpasero/chokidar)
+245.	vscode-chrome-debug-core version 3.23.0 (https://github.com/Microsoft/vscode-chrome-debug-core)
+246.	vscode-css-languageservice version 3.0.6 (https://github.com/Microsoft/vscode-css-languageservice)
+247.	vscode-css-languageservice version 3.0.7 (https://github.com/Microsoft/vscode-css-languageservice)
+248.	vscode-debugadapter version 1.26.0 (https://github.com/Microsoft/vscode-debugadapter-node)
+249.	vscode-debugadapter version 1.27.0 (https://github.com/Microsoft/vscode-debugadapter-node)
+250.	vscode-debugprotocol version 1.26.0 (https://github.com/Microsoft/vscode-debugadapter-node)
+251.	vscode-debugprotocol version 1.27.0 (https://github.com/Microsoft/vscode-debugadapter-node)
+252.	vscode-emmet-helper version 1.1.38 (https://github.com/Microsoft/vscode-emmet-helper)
+253.	vscode-extension-telemetry version 0.0.15 (https://github.com/Microsoft/vscode-extension-telemetry)
+254.	vscode-fsevents version 0.3.8 (https://github.com/bpasero/fsevents)
+255.	vscode-html-languageservice version 2.0.17-next.3 (https://github.com/Microsoft/vscode-html-languageservice)
+256.	vscode-json-languageservice version 3.0.7 (https://github.com/Microsoft/vscode-json-languageservice)
+257.	vscode-jsonrpc version 3.6.0-next.1 (https://github.com/Microsoft/vscode-languageserver-node)
+258.	vscode-languageclient version 4.0.0-next.9 (https://github.com/Microsoft/vscode-languageserver-node)
+259.	vscode-languageserver version 4.0.0-next.3 (https://github.com/Microsoft/vscode-languageserver-node)
+260.	vscode-languageserver version 4.0.0-next.4 (https://github.com/Microsoft/vscode-languageserver-node)
+261.	vscode-languageserver-protocol version 3.6.0-next.4 (https://github.com/Microsoft/vscode-languageserver-node)
+262.	vscode-languageserver-protocol version 3.6.0-next.5 (https://github.com/Microsoft/vscode-languageserver-node)
+263.	vscode-languageserver-types version 3.5.0 (https://github.com/Microsoft/vscode-languageserver-node)
+264.	vscode-languageserver-types version 3.6.0-next.1 (https://github.com/Microsoft/vscode-languageserver-node)
+265.	vscode-logfile-highlighter version 1.2.0 (https://github.com/emilast/vscode-logfile-highlighter)
+266.	vscode-nls version 2.0.2 (https://github.com/Microsoft/vscode-nls)
+267.	vscode-nls version 3.2.1 (https://github.com/Microsoft/vscode-nls)
+268.	vscode-ripgrep version 0.7.1-patch.0.1 (https://github.com/roblourens/vscode-ripgrep)
+269.	vscode-swift version 0.0.1 (https://github.com/owensd/vscode-swift)
+270.	vscode-textmate version 3.2.0 (https://github.com/Microsoft/vscode-textmate)
+271.	vscode-uri version 1.0.1 (https://github.com/Microsoft/vscode-uri)
+272.	vscode-xterm version 3.2.0-beta7 (https://github.com/xtermjs/xterm.js)
+273.	which version 1.3.0 (https://github.com/npm/node-which)
+274.	windows-foreground-love version 0.1.0 (https://github.com/the-ress/node-windows-foreground-love)
+275.	windows-mutex version 0.2.0 (https://github.com/Microsoft/node-windows-mutex)
+276.	windows-process-tree version 0.1.6 (https://github.com/Microsoft/vscode-windows-process-tree)
+277.	wrappy version 1.0.2 (https://github.com/npm/wrappy)
+278.	ws version 3.3.2 (https://github.com/websockets/ws)
+279.	ws version 3.3.3 (https://github.com/websockets/ws)
+280.	yauzl version 2.8.0 (https://github.com/thejoshwolfe/yauzl)
+281.	zone.js version 0.7.6 (https://github.com/angular/zone.js)
 
 
 %% @emmetio/css-parser NOTICES AND INFORMATION BEGIN HERE
@@ -460,6 +496,36 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF agent-base NOTICES AND INFORMATION
+
+%% Amanieu/thread_local-rs NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2016 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF Amanieu/thread_local-rs NOTICES AND INFORMATION
 
 %% anymatch NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -1138,16 +1204,16 @@ END OF bindings NOTICES AND INFORMATION
 
 %% brace-expansion NOTICES AND INFORMATION BEGIN HERE
 =========================================
-(MIT)
+MIT License
 
 Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
@@ -1166,7 +1232,7 @@ END OF brace-expansion NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2014-2017, Jon Schlinkert.
+Copyright (c) 2014-2018, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1211,6 +1277,32 @@ FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TOR
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF buffer-crc32 NOTICES AND INFORMATION
+
+%% BurntSushi/byteorder NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2015 Andrew Gallant
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF BurntSushi/byteorder NOTICES AND INFORMATION
 
 %% byline NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -1337,6 +1429,250 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================
 END OF chromium NOTICES AND INFORMATION
+
+%% chronotope/chrono NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Rust-chrono is dual-licensed under The MIT License [1] and
+Apache 2.0 License [2]. Copyright (c) 2014--2017, Kang Seonghoon and
+contributors.
+
+Nota Bene: This is same as the Rust Project's own license.
+
+
+[1]: <http://opensource.org/licenses/MIT>, which is reproduced below:
+
+~~~~
+The MIT License (MIT)
+
+Copyright (c) 2014, Kang Seonghoon.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+~~~~
+
+
+[2]: <http://www.apache.org/licenses/LICENSE-2.0>, which is reproduced below:
+
+~~~~
+                              Apache License
+                        Version 2.0, January 2004
+                     http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+   "License" shall mean the terms and conditions for use, reproduction,
+   and distribution as defined by Sections 1 through 9 of this document.
+
+   "Licensor" shall mean the copyright owner or entity authorized by
+   the copyright owner that is granting the License.
+
+   "Legal Entity" shall mean the union of the acting entity and all
+   other entities that control, are controlled by, or are under common
+   control with that entity. For the purposes of this definition,
+   "control" means (i) the power, direct or indirect, to cause the
+   direction or management of such entity, whether by contract or
+   otherwise, or (ii) ownership of fifty percent (50%) or more of the
+   outstanding shares, or (iii) beneficial ownership of such entity.
+
+   "You" (or "Your") shall mean an individual or Legal Entity
+   exercising permissions granted by this License.
+
+   "Source" form shall mean the preferred form for making modifications,
+   including but not limited to software source code, documentation
+   source, and configuration files.
+
+   "Object" form shall mean any form resulting from mechanical
+   transformation or translation of a Source form, including but
+   not limited to compiled object code, generated documentation,
+   and conversions to other media types.
+
+   "Work" shall mean the work of authorship, whether in Source or
+   Object form, made available under the License, as indicated by a
+   copyright notice that is included in or attached to the work
+   (an example is provided in the Appendix below).
+
+   "Derivative Works" shall mean any work, whether in Source or Object
+   form, that is based on (or derived from) the Work and for which the
+   editorial revisions, annotations, elaborations, or other modifications
+   represent, as a whole, an original work of authorship. For the purposes
+   of this License, Derivative Works shall not include works that remain
+   separable from, or merely link (or bind by name) to the interfaces of,
+   the Work and Derivative Works thereof.
+
+   "Contribution" shall mean any work of authorship, including
+   the original version of the Work and any modifications or additions
+   to that Work or Derivative Works thereof, that is intentionally
+   submitted to Licensor for inclusion in the Work by the copyright owner
+   or by an individual or Legal Entity authorized to submit on behalf of
+   the copyright owner. For the purposes of this definition, "submitted"
+   means any form of electronic, verbal, or written communication sent
+   to the Licensor or its representatives, including but not limited to
+   communication on electronic mailing lists, source code control systems,
+   and issue tracking systems that are managed by, or on behalf of, the
+   Licensor for the purpose of discussing and improving the Work, but
+   excluding communication that is conspicuously marked or otherwise
+   designated in writing by the copyright owner as "Not a Contribution."
+
+   "Contributor" shall mean Licensor and any individual or Legal Entity
+   on behalf of whom a Contribution has been received by Licensor and
+   subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   copyright license to reproduce, prepare Derivative Works of,
+   publicly display, publicly perform, sublicense, and distribute the
+   Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   (except as stated in this section) patent license to make, have made,
+   use, offer to sell, sell, import, and otherwise transfer the Work,
+   where such license applies only to those patent claims licensable
+   by such Contributor that are necessarily infringed by their
+   Contribution(s) alone or by combination of their Contribution(s)
+   with the Work to which such Contribution(s) was submitted. If You
+   institute patent litigation against any entity (including a
+   cross-claim or counterclaim in a lawsuit) alleging that the Work
+   or a Contribution incorporated within the Work constitutes direct
+   or contributory patent infringement, then any patent licenses
+   granted to You under this License for that Work shall terminate
+   as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the
+   Work or Derivative Works thereof in any medium, with or without
+   modifications, and in Source or Object form, provided that You
+   meet the following conditions:
+
+   (a) You must give any other recipients of the Work or
+       Derivative Works a copy of this License; and
+
+   (b) You must cause any modified files to carry prominent notices
+       stating that You changed the files; and
+
+   (c) You must retain, in the Source form of any Derivative Works
+       that You distribute, all copyright, patent, trademark, and
+       attribution notices from the Source form of the Work,
+       excluding those notices that do not pertain to any part of
+       the Derivative Works; and
+
+   (d) If the Work includes a "NOTICE" text file as part of its
+       distribution, then any Derivative Works that You distribute must
+       include a readable copy of the attribution notices contained
+       within such NOTICE file, excluding those notices that do not
+       pertain to any part of the Derivative Works, in at least one
+       of the following places: within a NOTICE text file distributed
+       as part of the Derivative Works; within the Source form or
+       documentation, if provided along with the Derivative Works; or,
+       within a display generated by the Derivative Works, if and
+       wherever such third-party notices normally appear. The contents
+       of the NOTICE file are for informational purposes only and
+       do not modify the License. You may add Your own attribution
+       notices within Derivative Works that You distribute, alongside
+       or as an addendum to the NOTICE text from the Work, provided
+       that such additional attribution notices cannot be construed
+       as modifying the License.
+
+   You may add Your own copyright statement to Your modifications and
+   may provide additional or different license terms and conditions
+   for use, reproduction, or distribution of Your modifications, or
+   for any such Derivative Works as a whole, provided Your use,
+   reproduction, and distribution of the Work otherwise complies with
+   the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise,
+   any Contribution intentionally submitted for inclusion in the Work
+   by You to the Licensor shall be under the terms and conditions of
+   this License, without any additional terms or conditions.
+   Notwithstanding the above, nothing herein shall supersede or modify
+   the terms of any separate license agreement you may have executed
+   with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade
+   names, trademarks, service marks, or product names of the Licensor,
+   except as required for reasonable and customary use in describing the
+   origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or
+   agreed to in writing, Licensor provides the Work (and each
+   Contributor provides its Contributions) on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+   implied, including, without limitation, any warranties or conditions
+   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+   PARTICULAR PURPOSE. You are solely responsible for determining the
+   appropriateness of using or redistributing the Work and assume any
+   risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory,
+   whether in tort (including negligence), contract, or otherwise,
+   unless required by applicable law (such as deliberate and grossly
+   negligent acts) or agreed to in writing, shall any Contributor be
+   liable to You for damages, including any direct, indirect, special,
+   incidental, or consequential damages of any character arising as a
+   result of this License or out of the use or inability to use the
+   Work (including but not limited to damages for loss of goodwill,
+   work stoppage, computer failure or malfunction, or any and all
+   other commercial damages or losses), even if such Contributor
+   has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing
+   the Work or Derivative Works thereof, You may choose to offer,
+   and charge a fee for, acceptance of support, warranty, indemnity,
+   or other liability obligations and/or rights consistent with this
+   License. However, in accepting such obligations, You may act only
+   on Your own behalf and on Your sole responsibility, not on behalf
+   of any other Contributor, and only if You agree to indemnify,
+   defend, and hold each Contributor harmless for any liability
+   incurred by, or claims asserted against, such Contributor by reason
+   of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+APPENDIX: How to apply the Apache License to your work.
+
+   To apply the Apache License to your work, attach the following
+   boilerplate notice, with the fields enclosed by brackets "[]"
+   replaced with your own identifying information. (Don't include
+   the brackets!)  The text should be enclosed in the appropriate
+   comment syntax for the file format. We also recommend that a
+   file or class name and description of purpose be included on the
+   same "printed page" as the copyright notice for easier
+   identification within third-party archives.
+
+Copyright [yyyy] [name of copyright owner]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+~~~~
+=========================================
+END OF chronotope/chrono NOTICES AND INFORMATION
 
 %% Colorsublime-Themes NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -1543,6 +1879,58 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF demyte/language-cshtml NOTICES AND INFORMATION
 
+%% diagnostic-channel NOTICES AND INFORMATION BEGIN HERE
+=========================================
+MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+=========================================
+END OF diagnostic-channel NOTICES AND INFORMATION
+
+%% diagnostic-channel-publishers NOTICES AND INFORMATION BEGIN HERE
+=========================================
+MIT License
+
+    Copyright (c) Microsoft Corporation. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE
+=========================================
+END OF diagnostic-channel-publishers NOTICES AND INFORMATION
+
 %% dotnet/csharp-tmLanguage NOTICES AND INFORMATION BEGIN HERE
 =========================================
 MIT License
@@ -1568,6 +1956,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 =========================================
 END OF dotnet/csharp-tmLanguage NOTICES AND INFORMATION
+
+%% dtolnay/isatty NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2016
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF dtolnay/isatty NOTICES AND INFORMATION
 
 %% electron NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -4275,7 +4693,7 @@ END OF mdurl NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2014-2017, Jon Schlinkert.
+Copyright (c) 2014-2018, Jon Schlinkert.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -4434,6 +4852,32 @@ THE SOFTWARE.
 =========================================
 END OF mmims/language-batchfile NOTICES AND INFORMATION
 
+%% mrhooray/crc-rs NOTICES AND INFORMATION BEGIN HERE
+=========================================
+MIT License
+
+Copyright (c) 2017 crc-rs Developers
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF mrhooray/crc-rs NOTICES AND INFORMATION
+
 %% ms NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
@@ -4464,7 +4908,7 @@ END OF ms NOTICES AND INFORMATION
 =========================================
 The MIT License (MIT)
 
-Copyright (c) 2017 NAN contributors
+Copyright (c) 2018 NAN contributors
 
 *NAN contributors listed at <https://github.com/nodejs/nan#contributors>*
 
@@ -6216,6 +6660,34 @@ SOFTWARE.
 =========================================
 END OF pend NOTICES AND INFORMATION
 
+%% PowerShell/EditorSyntax NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) Microsoft Corporation
+
+All rights reserved.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF PowerShell/EditorSyntax NOTICES AND INFORMATION
+
 %% preserve NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
@@ -6402,6 +6874,107 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF readdirp NOTICES AND INFORMATION
 
+%% redox-os/syscall NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2017 Redox OS Developers
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+=========================================
+END OF redox-os/syscall NOTICES AND INFORMATION
+
+%% redox-os/termios NOTICES AND INFORMATION BEGIN HERE
+=========================================
+MIT License
+
+Copyright (c) 2017 Redox OS
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF redox-os/termios NOTICES AND INFORMATION
+
+%% reem/rust-unreachable NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2015 The rust-unreachable Developers
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF reem/rust-unreachable NOTICES AND INFORMATION
+
+%% reem/rust-void NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2015 The rust-void Developers
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF reem/rust-void NOTICES AND INFORMATION
+
 %% regex-cache NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The MIT License (MIT)
@@ -6519,6 +7092,30 @@ SOFTWARE.
 =========================================
 END OF request-light NOTICES AND INFORMATION
 
+%% retep998/winapi-rs NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2015 The winapi-rs Developers
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF retep998/winapi-rs NOTICES AND INFORMATION
+
 %% rimraf NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The ISC License
@@ -6538,6 +7135,216 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
 IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 =========================================
 END OF rimraf NOTICES AND INFORMATION
+
+%% rust-lang-nursery/lazy-static.rs NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2010 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF rust-lang-nursery/lazy-static.rs NOTICES AND INFORMATION
+
+%% rust-lang/libc NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF rust-lang/libc NOTICES AND INFORMATION
+
+%% rust-lang/time NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF rust-lang/time NOTICES AND INFORMATION
+
+%% rust-num/num NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF rust-num/num NOTICES AND INFORMATION
+
+%% rust-num/num-integer NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF rust-num/num-integer NOTICES AND INFORMATION
+
+%% rust-num/num-iter NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF rust-num/num-iter NOTICES AND INFORMATION
+
+%% rust-num/num-traits NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF rust-num/num-traits NOTICES AND INFORMATION
 
 %% safe-buffer NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -6636,6 +7443,32 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 =========================================
 END OF seti-ui NOTICES AND INFORMATION
 
+%% Sgeo/take_mut NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2016 Sgeo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF Sgeo/take_mut NOTICES AND INFORMATION
+
 %% shaders-tmLanguage NOTICES AND INFORMATION BEGIN HERE
 =========================================
 MIT License
@@ -6661,6 +7494,792 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 =========================================
 END OF shaders-tmLanguage NOTICES AND INFORMATION
+
+%% slog-rs/async NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Mozilla Public License Version 2.0
+==================================
+
+1. Definitions
+--------------
+
+1.1. "Contributor"
+    means each individual or legal entity that creates, contributes to
+    the creation of, or owns Covered Software.
+
+1.2. "Contributor Version"
+    means the combination of the Contributions of others (if any) used
+    by a Contributor and that particular Contributor's Contribution.
+
+1.3. "Contribution"
+    means Covered Software of a particular Contributor.
+
+1.4. "Covered Software"
+    means Source Code Form to which the initial Contributor has attached
+    the notice in Exhibit A, the Executable Form of such Source Code
+    Form, and Modifications of such Source Code Form, in each case
+    including portions thereof.
+
+1.5. "Incompatible With Secondary Licenses"
+    means
+
+    (a) that the initial Contributor has attached the notice described
+        in Exhibit B to the Covered Software; or
+
+    (b) that the Covered Software was made available under the terms of
+        version 1.1 or earlier of the License, but not also under the
+        terms of a Secondary License.
+
+1.6. "Executable Form"
+    means any form of the work other than Source Code Form.
+
+1.7. "Larger Work"
+    means a work that combines Covered Software with other material, in
+    a separate file or files, that is not Covered Software.
+
+1.8. "License"
+    means this document.
+
+1.9. "Licensable"
+    means having the right to grant, to the maximum extent possible,
+    whether at the time of the initial grant or subsequently, any and
+    all of the rights conveyed by this License.
+
+1.10. "Modifications"
+    means any of the following:
+
+    (a) any file in Source Code Form that results from an addition to,
+        deletion from, or modification of the contents of Covered
+        Software; or
+
+    (b) any new file in Source Code Form that contains any Covered
+        Software.
+
+1.11. "Patent Claims" of a Contributor
+    means any patent claim(s), including without limitation, method,
+    process, and apparatus claims, in any patent Licensable by such
+    Contributor that would be infringed, but for the grant of the
+    License, by the making, using, selling, offering for sale, having
+    made, import, or transfer of either its Contributions or its
+    Contributor Version.
+
+1.12. "Secondary License"
+    means either the GNU General Public License, Version 2.0, the GNU
+    Lesser General Public License, Version 2.1, the GNU Affero General
+    Public License, Version 3.0, or any later versions of those
+    licenses.
+
+1.13. "Source Code Form"
+    means the form of the work preferred for making modifications.
+
+1.14. "You" (or "Your")
+    means an individual or a legal entity exercising rights under this
+    License. For legal entities, "You" includes any entity that
+    controls, is controlled by, or is under common control with You. For
+    purposes of this definition, "control" means (a) the power, direct
+    or indirect, to cause the direction or management of such entity,
+    whether by contract or otherwise, or (b) ownership of more than
+    fifty percent (50%) of the outstanding shares or beneficial
+    ownership of such entity.
+
+2. License Grants and Conditions
+--------------------------------
+
+2.1. Grants
+
+Each Contributor hereby grants You a world-wide, royalty-free,
+non-exclusive license:
+
+(a) under intellectual property rights (other than patent or trademark)
+    Licensable by such Contributor to use, reproduce, make available,
+    modify, display, perform, distribute, and otherwise exploit its
+    Contributions, either on an unmodified basis, with Modifications, or
+    as part of a Larger Work; and
+
+(b) under Patent Claims of such Contributor to make, use, sell, offer
+    for sale, have made, import, and otherwise transfer either its
+    Contributions or its Contributor Version.
+
+2.2. Effective Date
+
+The licenses granted in Section 2.1 with respect to any Contribution
+become effective for each Contribution on the date the Contributor first
+distributes such Contribution.
+
+2.3. Limitations on Grant Scope
+
+The licenses granted in this Section 2 are the only rights granted under
+this License. No additional rights or licenses will be implied from the
+distribution or licensing of Covered Software under this License.
+Notwithstanding Section 2.1(b) above, no patent license is granted by a
+Contributor:
+
+(a) for any code that a Contributor has removed from Covered Software;
+    or
+
+(b) for infringements caused by: (i) Your and any other third party's
+    modifications of Covered Software, or (ii) the combination of its
+    Contributions with other software (except as part of its Contributor
+    Version); or
+
+(c) under Patent Claims infringed by Covered Software in the absence of
+    its Contributions.
+
+This License does not grant any rights in the trademarks, service marks,
+or logos of any Contributor (except as may be necessary to comply with
+the notice requirements in Section 3.4).
+
+2.4. Subsequent Licenses
+
+No Contributor makes additional grants as a result of Your choice to
+distribute the Covered Software under a subsequent version of this
+License (see Section 10.2) or under the terms of a Secondary License (if
+permitted under the terms of Section 3.3).
+
+2.5. Representation
+
+Each Contributor represents that the Contributor believes its
+Contributions are its original creation(s) or it has sufficient rights
+to grant the rights to its Contributions conveyed by this License.
+
+2.6. Fair Use
+
+This License is not intended to limit any rights You have under
+applicable copyright doctrines of fair use, fair dealing, or other
+equivalents.
+
+2.7. Conditions
+
+Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
+in Section 2.1.
+
+3. Responsibilities
+-------------------
+
+3.1. Distribution of Source Form
+
+All distribution of Covered Software in Source Code Form, including any
+Modifications that You create or to which You contribute, must be under
+the terms of this License. You must inform recipients that the Source
+Code Form of the Covered Software is governed by the terms of this
+License, and how they can obtain a copy of this License. You may not
+attempt to alter or restrict the recipients' rights in the Source Code
+Form.
+
+3.2. Distribution of Executable Form
+
+If You distribute Covered Software in Executable Form then:
+
+(a) such Covered Software must also be made available in Source Code
+    Form, as described in Section 3.1, and You must inform recipients of
+    the Executable Form how they can obtain a copy of such Source Code
+    Form by reasonable means in a timely manner, at a charge no more
+    than the cost of distribution to the recipient; and
+
+(b) You may distribute such Executable Form under the terms of this
+    License, or sublicense it under different terms, provided that the
+    license for the Executable Form does not attempt to limit or alter
+    the recipients' rights in the Source Code Form under this License.
+
+3.3. Distribution of a Larger Work
+
+You may create and distribute a Larger Work under terms of Your choice,
+provided that You also comply with the requirements of this License for
+the Covered Software. If the Larger Work is a combination of Covered
+Software with a work governed by one or more Secondary Licenses, and the
+Covered Software is not Incompatible With Secondary Licenses, this
+License permits You to additionally distribute such Covered Software
+under the terms of such Secondary License(s), so that the recipient of
+the Larger Work may, at their option, further distribute the Covered
+Software under the terms of either this License or such Secondary
+License(s).
+
+3.4. Notices
+
+You may not remove or alter the substance of any license notices
+(including copyright notices, patent notices, disclaimers of warranty,
+or limitations of liability) contained within the Source Code Form of
+the Covered Software, except that You may alter any license notices to
+the extent required to remedy known factual inaccuracies.
+
+3.5. Application of Additional Terms
+
+You may choose to offer, and to charge a fee for, warranty, support,
+indemnity or liability obligations to one or more recipients of Covered
+Software. However, You may do so only on Your own behalf, and not on
+behalf of any Contributor. You must make it absolutely clear that any
+such warranty, support, indemnity, or liability obligation is offered by
+You alone, and You hereby agree to indemnify every Contributor for any
+liability incurred by such Contributor as a result of warranty, support,
+indemnity or liability terms You offer. You may include additional
+disclaimers of warranty and limitations of liability specific to any
+jurisdiction.
+
+4. Inability to Comply Due to Statute or Regulation
+---------------------------------------------------
+
+If it is impossible for You to comply with any of the terms of this
+License with respect to some or all of the Covered Software due to
+statute, judicial order, or regulation then You must: (a) comply with
+the terms of this License to the maximum extent possible; and (b)
+describe the limitations and the code they affect. Such description must
+be placed in a text file included with all distributions of the Covered
+Software under this License. Except to the extent prohibited by statute
+or regulation, such description must be sufficiently detailed for a
+recipient of ordinary skill to be able to understand it.
+
+5. Termination
+--------------
+
+5.1. The rights granted under this License will terminate automatically
+if You fail to comply with any of its terms. However, if You become
+compliant, then the rights granted under this License from a particular
+Contributor are reinstated (a) provisionally, unless and until such
+Contributor explicitly and finally terminates Your grants, and (b) on an
+ongoing basis, if such Contributor fails to notify You of the
+non-compliance by some reasonable means prior to 60 days after You have
+come back into compliance. Moreover, Your grants from a particular
+Contributor are reinstated on an ongoing basis if such Contributor
+notifies You of the non-compliance by some reasonable means, this is the
+first time You have received notice of non-compliance with this License
+from such Contributor, and You become compliant prior to 30 days after
+Your receipt of the notice.
+
+5.2. If You initiate litigation against any entity by asserting a patent
+infringement claim (excluding declaratory judgment actions,
+counter-claims, and cross-claims) alleging that a Contributor Version
+directly or indirectly infringes any patent, then the rights granted to
+You by any and all Contributors for the Covered Software under Section
+2.1 of this License shall terminate.
+
+5.3. In the event of termination under Sections 5.1 or 5.2 above, all
+end user license agreements (excluding distributors and resellers) which
+have been validly granted by You or Your distributors under this License
+prior to termination shall survive termination.
+
+************************************************************************
+*                                                                      *
+*  6. Disclaimer of Warranty                                           *
+*  -------------------------                                           *
+*                                                                      *
+*  Covered Software is provided under this License on an "as is"       *
+*  basis, without warranty of any kind, either expressed, implied, or  *
+*  statutory, including, without limitation, warranties that the       *
+*  Covered Software is free of defects, merchantable, fit for a        *
+*  particular purpose or non-infringing. The entire risk as to the     *
+*  quality and performance of the Covered Software is with You.        *
+*  Should any Covered Software prove defective in any respect, You     *
+*  (not any Contributor) assume the cost of any necessary servicing,   *
+*  repair, or correction. This disclaimer of warranty constitutes an   *
+*  essential part of this License. No use of any Covered Software is   *
+*  authorized under this License except under this disclaimer.         *
+*                                                                      *
+************************************************************************
+
+************************************************************************
+*                                                                      *
+*  7. Limitation of Liability                                          *
+*  --------------------------                                          *
+*                                                                      *
+*  Under no circumstances and under no legal theory, whether tort      *
+*  (including negligence), contract, or otherwise, shall any           *
+*  Contributor, or anyone who distributes Covered Software as          *
+*  permitted above, be liable to You for any direct, indirect,         *
+*  special, incidental, or consequential damages of any character      *
+*  including, without limitation, damages for lost profits, loss of    *
+*  goodwill, work stoppage, computer failure or malfunction, or any    *
+*  and all other commercial damages or losses, even if such party      *
+*  shall have been informed of the possibility of such damages. This   *
+*  limitation of liability shall not apply to liability for death or   *
+*  personal injury resulting from such party's negligence to the       *
+*  extent applicable law prohibits such limitation. Some               *
+*  jurisdictions do not allow the exclusion or limitation of           *
+*  incidental or consequential damages, so this exclusion and          *
+*  limitation may not apply to You.                                    *
+*                                                                      *
+************************************************************************
+
+8. Litigation
+-------------
+
+Any litigation relating to this License may be brought only in the
+courts of a jurisdiction where the defendant maintains its principal
+place of business and such litigation shall be governed by laws of that
+jurisdiction, without reference to its conflict-of-law provisions.
+Nothing in this Section shall prevent a party's ability to bring
+cross-claims or counter-claims.
+
+9. Miscellaneous
+----------------
+
+This License represents the complete agreement concerning the subject
+matter hereof. If any provision of this License is held to be
+unenforceable, such provision shall be reformed only to the extent
+necessary to make it enforceable. Any law or regulation which provides
+that the language of a contract shall be construed against the drafter
+shall not be used to construe this License against a Contributor.
+
+10. Versions of the License
+---------------------------
+
+10.1. New Versions
+
+Mozilla Foundation is the license steward. Except as provided in Section
+10.3, no one other than the license steward has the right to modify or
+publish new versions of this License. Each version will be given a
+distinguishing version number.
+
+10.2. Effect of New Versions
+
+You may distribute the Covered Software under the terms of the version
+of the License under which You originally received the Covered Software,
+or under the terms of any subsequent version published by the license
+steward.
+
+10.3. Modified Versions
+
+If you create software not governed by this License, and you want to
+create a new license for such software, you may create and use a
+modified version of this License if you rename the license and remove
+any references to the name of the license steward (except to note that
+such modified license differs from this License).
+
+10.4. Distributing Source Code Form that is Incompatible With Secondary
+Licenses
+
+If You choose to distribute Source Code Form that is Incompatible With
+Secondary Licenses under the terms of this version of the License, the
+notice described in Exhibit B of this License must be attached.
+
+Exhibit A - Source Code Form License Notice
+-------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+
+You may add additional accurate notices of copyright ownership.
+
+Exhibit B - "Incompatible With Secondary Licenses" Notice
+---------------------------------------------------------
+
+  This Source Code Form is "Incompatible With Secondary Licenses", as
+  defined by the Mozilla Public License, v. 2.0.
+=========================================
+END OF slog-rs/async NOTICES AND INFORMATION
+
+%% slog-rs/slog NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF slog-rs/slog NOTICES AND INFORMATION
+
+%% slog-rs/term NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Mozilla Public License Version 2.0
+==================================
+
+1. Definitions
+--------------
+
+1.1. "Contributor"
+    means each individual or legal entity that creates, contributes to
+    the creation of, or owns Covered Software.
+
+1.2. "Contributor Version"
+    means the combination of the Contributions of others (if any) used
+    by a Contributor and that particular Contributor's Contribution.
+
+1.3. "Contribution"
+    means Covered Software of a particular Contributor.
+
+1.4. "Covered Software"
+    means Source Code Form to which the initial Contributor has attached
+    the notice in Exhibit A, the Executable Form of such Source Code
+    Form, and Modifications of such Source Code Form, in each case
+    including portions thereof.
+
+1.5. "Incompatible With Secondary Licenses"
+    means
+
+    (a) that the initial Contributor has attached the notice described
+        in Exhibit B to the Covered Software; or
+
+    (b) that the Covered Software was made available under the terms of
+        version 1.1 or earlier of the License, but not also under the
+        terms of a Secondary License.
+
+1.6. "Executable Form"
+    means any form of the work other than Source Code Form.
+
+1.7. "Larger Work"
+    means a work that combines Covered Software with other material, in
+    a separate file or files, that is not Covered Software.
+
+1.8. "License"
+    means this document.
+
+1.9. "Licensable"
+    means having the right to grant, to the maximum extent possible,
+    whether at the time of the initial grant or subsequently, any and
+    all of the rights conveyed by this License.
+
+1.10. "Modifications"
+    means any of the following:
+
+    (a) any file in Source Code Form that results from an addition to,
+        deletion from, or modification of the contents of Covered
+        Software; or
+
+    (b) any new file in Source Code Form that contains any Covered
+        Software.
+
+1.11. "Patent Claims" of a Contributor
+    means any patent claim(s), including without limitation, method,
+    process, and apparatus claims, in any patent Licensable by such
+    Contributor that would be infringed, but for the grant of the
+    License, by the making, using, selling, offering for sale, having
+    made, import, or transfer of either its Contributions or its
+    Contributor Version.
+
+1.12. "Secondary License"
+    means either the GNU General Public License, Version 2.0, the GNU
+    Lesser General Public License, Version 2.1, the GNU Affero General
+    Public License, Version 3.0, or any later versions of those
+    licenses.
+
+1.13. "Source Code Form"
+    means the form of the work preferred for making modifications.
+
+1.14. "You" (or "Your")
+    means an individual or a legal entity exercising rights under this
+    License. For legal entities, "You" includes any entity that
+    controls, is controlled by, or is under common control with You. For
+    purposes of this definition, "control" means (a) the power, direct
+    or indirect, to cause the direction or management of such entity,
+    whether by contract or otherwise, or (b) ownership of more than
+    fifty percent (50%) of the outstanding shares or beneficial
+    ownership of such entity.
+
+2. License Grants and Conditions
+--------------------------------
+
+2.1. Grants
+
+Each Contributor hereby grants You a world-wide, royalty-free,
+non-exclusive license:
+
+(a) under intellectual property rights (other than patent or trademark)
+    Licensable by such Contributor to use, reproduce, make available,
+    modify, display, perform, distribute, and otherwise exploit its
+    Contributions, either on an unmodified basis, with Modifications, or
+    as part of a Larger Work; and
+
+(b) under Patent Claims of such Contributor to make, use, sell, offer
+    for sale, have made, import, and otherwise transfer either its
+    Contributions or its Contributor Version.
+
+2.2. Effective Date
+
+The licenses granted in Section 2.1 with respect to any Contribution
+become effective for each Contribution on the date the Contributor first
+distributes such Contribution.
+
+2.3. Limitations on Grant Scope
+
+The licenses granted in this Section 2 are the only rights granted under
+this License. No additional rights or licenses will be implied from the
+distribution or licensing of Covered Software under this License.
+Notwithstanding Section 2.1(b) above, no patent license is granted by a
+Contributor:
+
+(a) for any code that a Contributor has removed from Covered Software;
+    or
+
+(b) for infringements caused by: (i) Your and any other third party's
+    modifications of Covered Software, or (ii) the combination of its
+    Contributions with other software (except as part of its Contributor
+    Version); or
+
+(c) under Patent Claims infringed by Covered Software in the absence of
+    its Contributions.
+
+This License does not grant any rights in the trademarks, service marks,
+or logos of any Contributor (except as may be necessary to comply with
+the notice requirements in Section 3.4).
+
+2.4. Subsequent Licenses
+
+No Contributor makes additional grants as a result of Your choice to
+distribute the Covered Software under a subsequent version of this
+License (see Section 10.2) or under the terms of a Secondary License (if
+permitted under the terms of Section 3.3).
+
+2.5. Representation
+
+Each Contributor represents that the Contributor believes its
+Contributions are its original creation(s) or it has sufficient rights
+to grant the rights to its Contributions conveyed by this License.
+
+2.6. Fair Use
+
+This License is not intended to limit any rights You have under
+applicable copyright doctrines of fair use, fair dealing, or other
+equivalents.
+
+2.7. Conditions
+
+Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
+in Section 2.1.
+
+3. Responsibilities
+-------------------
+
+3.1. Distribution of Source Form
+
+All distribution of Covered Software in Source Code Form, including any
+Modifications that You create or to which You contribute, must be under
+the terms of this License. You must inform recipients that the Source
+Code Form of the Covered Software is governed by the terms of this
+License, and how they can obtain a copy of this License. You may not
+attempt to alter or restrict the recipients' rights in the Source Code
+Form.
+
+3.2. Distribution of Executable Form
+
+If You distribute Covered Software in Executable Form then:
+
+(a) such Covered Software must also be made available in Source Code
+    Form, as described in Section 3.1, and You must inform recipients of
+    the Executable Form how they can obtain a copy of such Source Code
+    Form by reasonable means in a timely manner, at a charge no more
+    than the cost of distribution to the recipient; and
+
+(b) You may distribute such Executable Form under the terms of this
+    License, or sublicense it under different terms, provided that the
+    license for the Executable Form does not attempt to limit or alter
+    the recipients' rights in the Source Code Form under this License.
+
+3.3. Distribution of a Larger Work
+
+You may create and distribute a Larger Work under terms of Your choice,
+provided that You also comply with the requirements of this License for
+the Covered Software. If the Larger Work is a combination of Covered
+Software with a work governed by one or more Secondary Licenses, and the
+Covered Software is not Incompatible With Secondary Licenses, this
+License permits You to additionally distribute such Covered Software
+under the terms of such Secondary License(s), so that the recipient of
+the Larger Work may, at their option, further distribute the Covered
+Software under the terms of either this License or such Secondary
+License(s).
+
+3.4. Notices
+
+You may not remove or alter the substance of any license notices
+(including copyright notices, patent notices, disclaimers of warranty,
+or limitations of liability) contained within the Source Code Form of
+the Covered Software, except that You may alter any license notices to
+the extent required to remedy known factual inaccuracies.
+
+3.5. Application of Additional Terms
+
+You may choose to offer, and to charge a fee for, warranty, support,
+indemnity or liability obligations to one or more recipients of Covered
+Software. However, You may do so only on Your own behalf, and not on
+behalf of any Contributor. You must make it absolutely clear that any
+such warranty, support, indemnity, or liability obligation is offered by
+You alone, and You hereby agree to indemnify every Contributor for any
+liability incurred by such Contributor as a result of warranty, support,
+indemnity or liability terms You offer. You may include additional
+disclaimers of warranty and limitations of liability specific to any
+jurisdiction.
+
+4. Inability to Comply Due to Statute or Regulation
+---------------------------------------------------
+
+If it is impossible for You to comply with any of the terms of this
+License with respect to some or all of the Covered Software due to
+statute, judicial order, or regulation then You must: (a) comply with
+the terms of this License to the maximum extent possible; and (b)
+describe the limitations and the code they affect. Such description must
+be placed in a text file included with all distributions of the Covered
+Software under this License. Except to the extent prohibited by statute
+or regulation, such description must be sufficiently detailed for a
+recipient of ordinary skill to be able to understand it.
+
+5. Termination
+--------------
+
+5.1. The rights granted under this License will terminate automatically
+if You fail to comply with any of its terms. However, if You become
+compliant, then the rights granted under this License from a particular
+Contributor are reinstated (a) provisionally, unless and until such
+Contributor explicitly and finally terminates Your grants, and (b) on an
+ongoing basis, if such Contributor fails to notify You of the
+non-compliance by some reasonable means prior to 60 days after You have
+come back into compliance. Moreover, Your grants from a particular
+Contributor are reinstated on an ongoing basis if such Contributor
+notifies You of the non-compliance by some reasonable means, this is the
+first time You have received notice of non-compliance with this License
+from such Contributor, and You become compliant prior to 30 days after
+Your receipt of the notice.
+
+5.2. If You initiate litigation against any entity by asserting a patent
+infringement claim (excluding declaratory judgment actions,
+counter-claims, and cross-claims) alleging that a Contributor Version
+directly or indirectly infringes any patent, then the rights granted to
+You by any and all Contributors for the Covered Software under Section
+2.1 of this License shall terminate.
+
+5.3. In the event of termination under Sections 5.1 or 5.2 above, all
+end user license agreements (excluding distributors and resellers) which
+have been validly granted by You or Your distributors under this License
+prior to termination shall survive termination.
+
+************************************************************************
+*                                                                      *
+*  6. Disclaimer of Warranty                                           *
+*  -------------------------                                           *
+*                                                                      *
+*  Covered Software is provided under this License on an "as is"       *
+*  basis, without warranty of any kind, either expressed, implied, or  *
+*  statutory, including, without limitation, warranties that the       *
+*  Covered Software is free of defects, merchantable, fit for a        *
+*  particular purpose or non-infringing. The entire risk as to the     *
+*  quality and performance of the Covered Software is with You.        *
+*  Should any Covered Software prove defective in any respect, You     *
+*  (not any Contributor) assume the cost of any necessary servicing,   *
+*  repair, or correction. This disclaimer of warranty constitutes an   *
+*  essential part of this License. No use of any Covered Software is   *
+*  authorized under this License except under this disclaimer.         *
+*                                                                      *
+************************************************************************
+
+************************************************************************
+*                                                                      *
+*  7. Limitation of Liability                                          *
+*  --------------------------                                          *
+*                                                                      *
+*  Under no circumstances and under no legal theory, whether tort      *
+*  (including negligence), contract, or otherwise, shall any           *
+*  Contributor, or anyone who distributes Covered Software as          *
+*  permitted above, be liable to You for any direct, indirect,         *
+*  special, incidental, or consequential damages of any character      *
+*  including, without limitation, damages for lost profits, loss of    *
+*  goodwill, work stoppage, computer failure or malfunction, or any    *
+*  and all other commercial damages or losses, even if such party      *
+*  shall have been informed of the possibility of such damages. This   *
+*  limitation of liability shall not apply to liability for death or   *
+*  personal injury resulting from such party's negligence to the       *
+*  extent applicable law prohibits such limitation. Some               *
+*  jurisdictions do not allow the exclusion or limitation of           *
+*  incidental or consequential damages, so this exclusion and          *
+*  limitation may not apply to You.                                    *
+*                                                                      *
+************************************************************************
+
+8. Litigation
+-------------
+
+Any litigation relating to this License may be brought only in the
+courts of a jurisdiction where the defendant maintains its principal
+place of business and such litigation shall be governed by laws of that
+jurisdiction, without reference to its conflict-of-law provisions.
+Nothing in this Section shall prevent a party's ability to bring
+cross-claims or counter-claims.
+
+9. Miscellaneous
+----------------
+
+This License represents the complete agreement concerning the subject
+matter hereof. If any provision of this License is held to be
+unenforceable, such provision shall be reformed only to the extent
+necessary to make it enforceable. Any law or regulation which provides
+that the language of a contract shall be construed against the drafter
+shall not be used to construe this License against a Contributor.
+
+10. Versions of the License
+---------------------------
+
+10.1. New Versions
+
+Mozilla Foundation is the license steward. Except as provided in Section
+10.3, no one other than the license steward has the right to modify or
+publish new versions of this License. Each version will be given a
+distinguishing version number.
+
+10.2. Effect of New Versions
+
+You may distribute the Covered Software under the terms of the version
+of the License under which You originally received the Covered Software,
+or under the terms of any subsequent version published by the license
+steward.
+
+10.3. Modified Versions
+
+If you create software not governed by this License, and you want to
+create a new license for such software, you may create and use a
+modified version of this License if you rename the license and remove
+any references to the name of the license steward (except to note that
+such modified license differs from this License).
+
+10.4. Distributing Source Code Form that is Incompatible With Secondary
+Licenses
+
+If You choose to distribute Source Code Form that is Incompatible With
+Secondary Licenses under the terms of this version of the License, the
+notice described in Exhibit B of this License must be attached.
+
+Exhibit A - Source Code Form License Notice
+-------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+
+You may add additional accurate notices of copyright ownership.
+
+Exhibit B - "Incompatible With Secondary Licenses" Notice
+---------------------------------------------------------
+
+  This Source Code Form is "Incompatible With Secondary Licenses", as
+  defined by the Mozilla Public License, v. 2.0.
+=========================================
+END OF slog-rs/term NOTICES AND INFORMATION
 
 %% source-map NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -6775,6 +8394,36 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================
 END OF sprintf-js NOTICES AND INFORMATION
 
+%% Stebalien/term NOTICES AND INFORMATION BEGIN HERE
+=========================================
+Copyright (c) 2014 The Rust Project Developers
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+=========================================
+END OF Stebalien/term NOTICES AND INFORMATION
+
 %% string NOTICES AND INFORMATION BEGIN HERE
 =========================================
 Licensed under MIT.
@@ -6842,20 +8491,6 @@ IN THE SOFTWARE.
 """
 =========================================
 END OF string_decoder NOTICES AND INFORMATION
-
-%% SublimeText/PowerShell NOTICES AND INFORMATION BEGIN HERE
-=========================================
-The MIT License (MIT)
-
-Copyright (c) 2011 Guillermo López-Anglada
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-=========================================
-END OF SublimeText/PowerShell NOTICES AND INFORMATION
 
 %% sudo-prompt NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -7131,6 +8766,32 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 =========================================
 END OF textmate/yaml.tmbundle NOTICES AND INFORMATION
 
+%% ticki/termion NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2016 Ticki
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+=========================================
+END OF ticki/termion NOTICES AND INFORMATION
+
 %% typechecker NOTICES AND INFORMATION BEGIN HERE
 =========================================
 License
@@ -7344,6 +9005,32 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 =========================================
 END OF v8-inspect-profiler NOTICES AND INFORMATION
+
+%% vitiral/build_const NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License (MIT)
+
+Copyright (c) 2017 Garrett Berg, vitiral@gmail.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF vitiral/build_const NOTICES AND INFORMATION
 
 %% vscode-chokidar NOTICES AND INFORMATION BEGIN HERE
 =========================================
@@ -7960,23 +9647,6 @@ MIT License
 =========================================
 END OF windows-process-tree NOTICES AND INFORMATION
 
-%% winreg NOTICES AND INFORMATION BEGIN HERE
-=========================================
-##
-
-This project is released under [BSD 2-Clause License](http://opensource.org/licenses/BSD-2-Clause).
-
-Copyright (c) 2016, Paul Bottin All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
- * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-=========================================
-END OF winreg NOTICES AND INFORMATION
-
 %% wrappy NOTICES AND INFORMATION BEGIN HERE
 =========================================
 The ISC License
@@ -8048,3 +9718,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 =========================================
 END OF yauzl NOTICES AND INFORMATION
+
+%% zone.js NOTICES AND INFORMATION BEGIN HERE
+=========================================
+The MIT License
+
+Copyright (c) 2016-2018 Google, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+=========================================
+END OF zone.js NOTICES AND INFORMATION

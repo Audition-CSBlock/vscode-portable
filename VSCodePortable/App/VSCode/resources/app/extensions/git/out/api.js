@@ -13,25 +13,41 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
+class InputBoxImpl {
+    constructor(inputBox) {
+        this.inputBox = inputBox;
+    }
+    set value(value) { this.inputBox.value = value; }
+    get value() { return this.inputBox.value; }
+}
+exports.InputBoxImpl = InputBoxImpl;
+class RepositoryImpl {
+    constructor(repository) {
+        this.rootUri = vscode_1.Uri.file(repository.root);
+        this.inputBox = new InputBoxImpl(repository.inputBox);
+    }
+}
+exports.RepositoryImpl = RepositoryImpl;
+class APIImpl {
+    constructor(modelPromise) {
+        this.modelPromise = modelPromise;
+    }
+    getGitPath() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const model = yield this.modelPromise;
+            return model.git.path;
+        });
+    }
+    getRepositories() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const model = yield this.modelPromise;
+            return model.repositories.map(repository => new RepositoryImpl(repository));
+        });
+    }
+}
+exports.APIImpl = APIImpl;
 function createApi(modelPromise) {
-    return {
-        getRepositories() {
-            return __awaiter(this, void 0, void 0, function* () {
-                const model = yield modelPromise;
-                return model.repositories.map(repository => ({
-                    rootUri: vscode_1.Uri.file(repository.root),
-                    inputBox: {
-                        set value(value) {
-                            repository.inputBox.value = value;
-                        },
-                        get value() {
-                            return repository.inputBox.value;
-                        }
-                    }
-                }));
-            });
-        }
-    };
+    return new APIImpl(modelPromise);
 }
 exports.createApi = createApi;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\git\out/api.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\git\out/api.js.map

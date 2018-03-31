@@ -360,7 +360,6 @@ class OperationsImpl {
 }
 class ProgressManager {
     constructor(repository) {
-        this.repository = repository;
         this.disposable = util_1.EmptyDisposable;
         const start = util_1.onceEvent(util_1.filterEvent(repository.onDidChangeOperations, () => repository.operations.shouldShowProgress()));
         const end = util_1.onceEvent(util_1.filterEvent(util_1.debounceEvent(repository.onDidChangeOperations, 300), () => !repository.operations.shouldShowProgress()));
@@ -403,7 +402,7 @@ class Repository {
         this.disposables.push(fsWatcher);
         const onWorkspaceChange = util_1.anyEvent(fsWatcher.onDidChange, fsWatcher.onDidCreate, fsWatcher.onDidDelete);
         const onRepositoryChange = util_1.filterEvent(onWorkspaceChange, uri => util_1.isDescendant(repository.root, uri.fsPath));
-        const onRelevantRepositoryChange = util_1.filterEvent(onRepositoryChange, uri => !/\/\.git\/index\.lock$/.test(uri.path));
+        const onRelevantRepositoryChange = util_1.filterEvent(onRepositoryChange, uri => !/\/\.git(\/index\.lock)?$/.test(uri.path));
         onRelevantRepositoryChange(this.onFSChange, this, this.disposables);
         const onRelevantGitChange = util_1.filterEvent(onRelevantRepositoryChange, uri => /\/\.git\//.test(uri.path));
         onRelevantGitChange(this._onDidChangeRepository.fire, this._onDidChangeRepository, this.disposables);
@@ -636,24 +635,42 @@ class Repository {
             yield this.run(Operation.Fetch, () => this.repository.fetch());
         });
     }
-    pullWithRebase() {
+    pullWithRebase(head) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.run(Operation.Pull, () => this.repository.pull(true));
+            let remote;
+            let branch;
+            if (head && head.name && head.upstream) {
+                remote = head.upstream.remote;
+                branch = `${head.upstream.name}`;
+            }
+            yield this.run(Operation.Pull, () => this.repository.pull(true, remote, branch));
         });
     }
-    pull(rebase, remote, name) {
+    pull(head) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.run(Operation.Pull, () => this.repository.pull(rebase, remote, name));
-        });
-    }
-    push() {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield this.run(Operation.Push, () => this.repository.push());
+            let remote;
+            let branch;
+            if (head && head.name && head.upstream) {
+                remote = head.upstream.remote;
+                branch = `${head.upstream.name}`;
+            }
+            yield this.run(Operation.Pull, () => this.repository.pull(false, remote, branch));
         });
     }
     pullFrom(rebase, remote, branch) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.run(Operation.Pull, () => this.repository.pull(rebase, remote, branch));
+        });
+    }
+    push(head) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let remote;
+            let branch;
+            if (head && head.name && head.upstream) {
+                remote = head.upstream.remote;
+                branch = `${head.name}:${head.upstream.name}`;
+            }
+            yield this.run(Operation.Push, () => this.repository.push(remote, branch));
         });
     }
     pushTo(remote, name, setUpstream = false) {
@@ -666,45 +683,50 @@ class Repository {
             yield this.run(Operation.Push, () => this.repository.push(remote, undefined, false, true));
         });
     }
-    _sync(rebase) {
+    sync(head) {
+        return this._sync(head, false);
+    }
+    syncRebase(head) {
         return __awaiter(this, void 0, void 0, function* () {
+            return this._sync(head, true);
+        });
+    }
+    _sync(head, rebase) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let remote;
+            let pullBranch;
+            let pushBranch;
+            if (head.name && head.upstream) {
+                remote = head.upstream.remote;
+                pullBranch = `${head.upstream.name}`;
+                pushBranch = `${head.name}:${head.upstream.name}`;
+            }
             yield this.run(Operation.Sync, () => __awaiter(this, void 0, void 0, function* () {
-                yield this.repository.pull(rebase);
+                yield this.repository.pull(rebase, remote, pullBranch);
                 const shouldPush = this.HEAD && typeof this.HEAD.ahead === 'number' ? this.HEAD.ahead > 0 : true;
                 if (shouldPush) {
-                    yield this.repository.push();
+                    yield this.repository.push(remote, pushBranch);
                 }
             }));
         });
     }
-    sync() {
-        return this._sync(false);
-    }
-    syncRebase() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this._sync(true);
-        });
-    }
     show(ref, filePath) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.run(Operation.Show, () => __awaiter(this, void 0, void 0, function* () {
+            return this.run(Operation.Show, () => {
                 const relativePath = path.relative(this.repository.root, filePath).replace(/\\/g, '/');
                 const configFiles = vscode_1.workspace.getConfiguration('files', vscode_1.Uri.file(filePath));
-                const encoding = configFiles.get('encoding');
-                // TODO@joao: Resource config api
-                return yield this.repository.bufferString(`${ref}:${relativePath}`, encoding);
-            }));
+                const defaultEncoding = configFiles.get('encoding');
+                const autoGuessEncoding = configFiles.get('autoGuessEncoding');
+                return this.repository.bufferString(`${ref}:${relativePath}`, defaultEncoding, autoGuessEncoding);
+            });
         });
     }
     buffer(ref, filePath) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.run(Operation.Show, () => __awaiter(this, void 0, void 0, function* () {
+            return this.run(Operation.Show, () => {
                 const relativePath = path.relative(this.repository.root, filePath).replace(/\\/g, '/');
-                const configFiles = vscode_1.workspace.getConfiguration('files', vscode_1.Uri.file(filePath));
-                const encoding = configFiles.get('encoding');
-                // TODO@joao: REsource config api
-                return yield this.repository.buffer(`${ref}:${relativePath}`);
-            }));
+                return this.repository.buffer(`${ref}:${relativePath}`);
+            });
         });
     }
     lstree(ref, filePath) {
@@ -852,9 +874,8 @@ class Repository {
             const useIcons = !config.get('decorations.enabled', true);
             this.isRepositoryHuge = didHitLimit;
             if (didHitLimit && !shouldIgnore && !this.didWarnAboutLimit) {
-                const ok = { title: localize(24, null), isCloseAffordance: true };
-                const neverAgain = { title: localize(25, null) };
-                vscode_1.window.showWarningMessage(localize(26, null, this.repository.root), ok, neverAgain).then(result => {
+                const neverAgain = { title: localize(24, null) };
+                vscode_1.window.showWarningMessage(localize(25, null, this.repository.root), neverAgain).then(result => {
                     if (result === neverAgain) {
                         config.update('ignoreLimitWarning', true, false);
                     }
@@ -898,11 +919,9 @@ class Repository {
                     case 'AA': return merge.push(new Resource(ResourceGroupType.Merge, uri, Status.BOTH_ADDED, useIcons));
                     case 'UU': return merge.push(new Resource(ResourceGroupType.Merge, uri, Status.BOTH_MODIFIED, useIcons));
                 }
-                let isModifiedInIndex = false;
                 switch (raw.x) {
                     case 'M':
                         index.push(new Resource(ResourceGroupType.Index, uri, Status.INDEX_MODIFIED, useIcons));
-                        isModifiedInIndex = true;
                         break;
                     case 'A':
                         index.push(new Resource(ResourceGroupType.Index, uri, Status.INDEX_ADDED, useIcons));
@@ -1050,4 +1069,4 @@ __decorate([
     decorators_1.throttle
 ], Repository.prototype, "updateWhenIdleAndWait", null);
 exports.Repository = Repository;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\git\out/repository.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\git\out/repository.js.map

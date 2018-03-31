@@ -61,7 +61,7 @@ function createLaunchArg(useSubsytemLinux, useExternalConsole, cwd, executable, 
 exports.createLaunchArg = createLaunchArg;
 function spawnSync(useWSL, executable, args, options) {
     const launchArgs = createLaunchArg(useWSL, false, undefined, executable, args);
-    return child_process.spawnSync(launchArgs.executable, launchArgs.args, options);
+    return child_process.spawnSync(launchArgs.executable, launchArgs.args, useWSL ? undefined : options);
 }
 exports.spawnSync = spawnSync;
 

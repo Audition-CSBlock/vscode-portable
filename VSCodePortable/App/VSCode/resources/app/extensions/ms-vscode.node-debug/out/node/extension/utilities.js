@@ -4,6 +4,7 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
+const FS = require("fs");
 /**
  * Send to debug console.
  */
@@ -23,5 +24,16 @@ function extendObject(toObject, fromObject) {
     return toObject;
 }
 exports.extendObject = extendObject;
+function mkdirP(path) {
+    return new Promise((resolve, reject) => {
+        FS.mkdir(path, err => {
+            if (err) {
+                return reject(err);
+            }
+            resolve();
+        });
+    });
+}
+exports.mkdirP = mkdirP;
 
 //# sourceMappingURL=../../../out/node/extension/utilities.js.map

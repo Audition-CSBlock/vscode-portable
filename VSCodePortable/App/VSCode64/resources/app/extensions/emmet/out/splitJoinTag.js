@@ -44,7 +44,13 @@ function getRangesToReplace(document, nodeToUpdate) {
         let end = nodeToUpdate.end;
         rangeToReplace = new vscode.Range(start, end);
         textToReplaceWith = '/>';
+        const emmetMode = util_1.getEmmetMode(document.languageId, []) || '';
+        const emmetConfig = util_1.getEmmetConfiguration(emmetMode);
+        if (emmetMode && emmetConfig.syntaxProfiles[emmetMode] &&
+            (emmetConfig.syntaxProfiles[emmetMode]['selfClosingStyle'] === 'xhtml' || emmetConfig.syntaxProfiles[emmetMode]['self_closing_tag'] === 'xhtml')) {
+            textToReplaceWith = ' ' + textToReplaceWith;
+        }
     }
     return new vscode.TextEdit(rangeToReplace, textToReplaceWith);
 }
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\emmet\out/splitJoinTag.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\emmet\out/splitJoinTag.js.map

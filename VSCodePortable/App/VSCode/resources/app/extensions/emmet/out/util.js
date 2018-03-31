@@ -41,8 +41,8 @@ exports.LANGUAGE_MODES = {
     'sass': [':', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
     'less': [':', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
     'stylus': [':', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-    'javascriptreact': ['.', '}', '*', '$', ']', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-    'typescriptreact': ['.', '}', '*', '$', ']', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    'javascriptreact': ['!', '.', '}', '*', '$', ']', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+    'typescriptreact': ['!', '.', '}', '*', '$', ']', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 };
 const emmetModes = ['html', 'pug', 'slim', 'haml', 'xml', 'xsl', 'jsx', 'css', 'scss', 'sass', 'less', 'stylus'];
 // Explicitly map languages that have built-in grammar in VS Code to their parent language
@@ -124,6 +124,143 @@ function parseDocument(document, showError = true) {
     return undefined;
 }
 exports.parseDocument = parseDocument;
+const closeBrace = 125;
+const openBrace = 123;
+const slash = 47;
+const star = 42;
+function parsePartialStylesheet(document, position) {
+    const isCSS = document.languageId === 'css';
+    let startPosition = new vscode.Position(0, 0);
+    let endPosition = new vscode.Position(document.lineCount - 1, document.lineAt(document.lineCount - 1).text.length);
+    const limitCharacter = document.offsetAt(position) - 5000;
+    const limitPosition = limitCharacter > 0 ? document.positionAt(limitCharacter) : startPosition;
+    const stream = new bufferStream_1.DocumentStreamReader(document, position);
+    function consumeLineCommentBackwards() {
+        if (!isCSS && currentLine !== stream.pos.line) {
+            currentLine = stream.pos.line;
+            let startLineComment = document.lineAt(currentLine).text.indexOf('//');
+            if (startLineComment > -1) {
+                stream.pos = new vscode.Position(currentLine, startLineComment);
+            }
+        }
+    }
+    function consumeBlockCommentBackwards() {
+        if (stream.peek() === slash) {
+            if (stream.backUp(1) === star) {
+                stream.pos = findOpeningCommentBeforePosition(document, stream.pos) || startPosition;
+            }
+            else {
+                stream.next();
+            }
+        }
+    }
+    function consumeCommentForwards() {
+        if (stream.eat(slash)) {
+            if (stream.eat(slash) && !isCSS) {
+                stream.pos = new vscode.Position(stream.pos.line + 1, 0);
+            }
+            else if (stream.eat(star)) {
+                stream.pos = findClosingCommentAfterPosition(document, stream.pos) || endPosition;
+            }
+        }
+    }
+    // Go forward until we find a closing brace.
+    while (!stream.eof() && !stream.eat(closeBrace)) {
+        if (stream.peek() === slash) {
+            consumeCommentForwards();
+        }
+        else {
+            stream.next();
+        }
+    }
+    if (!stream.eof()) {
+        endPosition = stream.pos;
+    }
+    stream.pos = position;
+    let openBracesToFind = 1;
+    let currentLine = position.line;
+    let exit = false;
+    // Go back until we found an opening brace. If we find a closing one, consume its pair and continue.
+    while (!exit && openBracesToFind > 0 && !stream.sof()) {
+        consumeLineCommentBackwards();
+        switch (stream.backUp(1)) {
+            case openBrace:
+                openBracesToFind--;
+                break;
+            case closeBrace:
+                if (isCSS) {
+                    stream.next();
+                    startPosition = stream.pos;
+                    exit = true;
+                }
+                else {
+                    openBracesToFind++;
+                }
+                break;
+            case slash:
+                consumeBlockCommentBackwards();
+                break;
+            default:
+                break;
+        }
+        if (position.line - stream.pos.line > 100 || stream.pos.isBeforeOrEqual(limitPosition)) {
+            exit = true;
+        }
+    }
+    // We are at an opening brace. We need to include its selector.
+    currentLine = stream.pos.line;
+    openBracesToFind = 0;
+    let foundSelector = false;
+    while (!exit && !stream.sof() && !foundSelector && openBracesToFind >= 0) {
+        consumeLineCommentBackwards();
+        const ch = stream.backUp(1);
+        if (/\s/.test(String.fromCharCode(ch))) {
+            continue;
+        }
+        switch (ch) {
+            case slash:
+                consumeBlockCommentBackwards();
+                break;
+            case closeBrace:
+                openBracesToFind++;
+                break;
+            case openBrace:
+                openBracesToFind--;
+                break;
+            default:
+                if (!openBracesToFind) {
+                    foundSelector = true;
+                }
+                break;
+        }
+        if (!stream.sof() && foundSelector) {
+            startPosition = stream.pos;
+        }
+    }
+    try {
+        return css_parser_1.default(new bufferStream_1.DocumentStreamReader(document, startPosition, new vscode.Range(startPosition, endPosition)));
+    }
+    catch (e) {
+    }
+}
+exports.parsePartialStylesheet = parsePartialStylesheet;
+function findOpeningCommentBeforePosition(document, position) {
+    let text = document.getText(new vscode.Range(0, 0, position.line, position.character));
+    let offset = text.lastIndexOf('/*');
+    if (offset === -1) {
+        return;
+    }
+    return document.positionAt(offset);
+}
+function findClosingCommentAfterPosition(document, position) {
+    let text = document.getText(new vscode.Range(position.line, position.character, document.lineCount - 1, document.lineAt(document.lineCount - 1).text.length));
+    let offset = text.indexOf('*/');
+    if (offset === -1) {
+        return;
+    }
+    offset += 2 + document.offsetAt(position);
+    return document.positionAt(offset);
+}
 /**
  * Returns node corresponding to given position in the given root node
  */
@@ -287,6 +424,7 @@ exports.sameNodes = sameNodes;
 function getEmmetConfiguration(syntax) {
     const emmetConfig = vscode.workspace.getConfiguration('emmet');
     const syntaxProfiles = Object.assign({}, emmetConfig['syntaxProfiles'] || {});
+    const preferences = Object.assign({}, emmetConfig['preferences'] || {});
     // jsx, xml and xsl syntaxes need to have self closing tags unless otherwise configured by user
     if (syntax === 'jsx' || syntax === 'xml' || syntax === 'xsl') {
         syntaxProfiles[syntax] = syntaxProfiles[syntax] || {};
@@ -298,7 +436,7 @@ function getEmmetConfiguration(syntax) {
         }
     }
     return {
-        preferences: emmetConfig['preferences'],
+        preferences,
         showExpandedAbbreviation: emmetConfig['showExpandedAbbreviation'],
         showAbbreviationSuggestions: emmetConfig['showAbbreviationSuggestions'],
         syntaxProfiles,
@@ -309,7 +447,7 @@ function getEmmetConfiguration(syntax) {
 }
 exports.getEmmetConfiguration = getEmmetConfiguration;
 /**
- * Itereates by each child, as well as nested child’ children, in their order
+ * Itereates by each child, as well as nested child's children, in their order
  * and invokes `fn` for each. If `fn` function returns `false`, iteration stops
  */
 function iterateCSSToken(token, fn) {
@@ -349,4 +487,4 @@ function getCssPropertyFromDocument(editor, position) {
     }
 }
 exports.getCssPropertyFromDocument = getCssPropertyFromDocument;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\emmet\out/util.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\emmet\out/util.js.map

@@ -1,7 +1,7 @@
 {
 	"name": "node-debug",
-	"displayName": "Node Debug",
-	"version": "1.21.1",
+	"displayName": "Node Debug (legacy)",
+	"version": "1.22.13",
 	"publisher": "ms-vscode",
 	"description": "%extension.description%",
 	"icon": "images/node-debug-icon.png",
@@ -36,10 +36,10 @@
 		"ms-vscode.node-debug2"
 	],
 	"dependencies": {
-		"vscode-debugadapter": "1.26.0",
+		"vscode-debugadapter": "1.28.0",
 		"source-map": "0.6.1",
 		"vscode-nls": "3.2.1",
-		"request-light": "0.2.1",
+		"request-light": "0.2.2",
 		"glob": "7.1.2",
 		"minimatch": "3.0.4"
 	},
@@ -71,19 +71,21 @@
 		"typescript": "2.6.2",
 		"vscode": "1.1.10",
 		"vscode-nls-dev": "3.0.7",
-		"vscode-debugadapter-testsupport": "1.26.0",
-		"vscode-debugprotocol": "1.26.0",
+		"vscode-debugadapter-testsupport": "1.28.0",
+		"vscode-debugprotocol": "1.28.0",
 		"event-stream": "3.3.4",
 		"nodemon": "1.14.11",
-		"vsce": "1.35.0"
+		"vsce": "1.37.6"
 	},
 	"main": "./out/node/extension/extension.js",
 	"activationEvents": [
 		"onDebugInitialConfigurations",
 		"onDebugResolve:node",
+		"onCommand:extension.pickNodeProcess",
 		"onCommand:extension.node-debug.toggleSkippingFile",
 		"onCommand:extension.node-debug.pickLoadedScript",
-		"onCommand:extension.pickNodeProcess"
+		"onCommand:extension.node-debug.toggleAutoAttach",
+		"onCommand:extension.node-debug.attachNodeProcess"
 	],
 	"contributes": {
 		"views": {
@@ -105,8 +107,17 @@
 			"title": "%open.loaded.script%",
 			"category": "Debug"
 		}, {
+			"command": "extension.node-debug.attachNodeProcess",
+			"title": "%attach.node.process%",
+			"category": "Debug"
+		}, {
 			"command": "extension.node-debug.toggleSkippingFile",
-			"title": "%toggle.skipping.this.file%"
+			"title": "%toggle.skipping.this.file%",
+			"category": "Debug"
+		}, {
+			"command": "extension.node-debug.toggleAutoAttach",
+			"title": "%toggle.auto.attach%",
+			"category": "Debug"
 		}],
 		"keybindings": [{
 			"command": "extension.node-debug.pickLoadedScript",

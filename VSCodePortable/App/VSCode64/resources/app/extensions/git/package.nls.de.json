@@ -1,4 +1,6 @@
 {
+	"displayName": "Git",
+	"description": "Git SCM-Integration",
 	"command.clone": "Klonen",
 	"command.init": "Repository initialisieren",
 	"command.close": "Repository schließen",
@@ -66,8 +68,9 @@
 	"config.decorations.enabled": "Steuert, ob Git Farben und Badges für die Explorer-Ansicht und die Ansicht \"Geöffnete Editoren\" beiträgt.",
 	"config.promptToSaveFilesBeforeCommit": "Legt fest, ob Git vor dem einchecken nach nicht gespeicherten Dateien suchen soll.",
 	"config.showInlineOpenFileAction": "Steuert, ob eine Inlineaktion zum Öffnen der Datei in der Ansicht \"Git-Änderungen\" angezeigt wird.",
-	"config.inputValidation": "Steuert, wann die Eingabevalidierung im Eingabezähler angezeigt wird.",
+	"config.inputValidation": "Steuert, wann die Commit-Meldung der Eingabevalidierung angezeigt wird.",
 	"config.detectSubmodules": "Steuert, ob Git-Submodule automatisch erkannt werden.",
+	"config.detectSubmodulesLimit": "Controls the limit of git submodules detected.",
 	"colors.modified": "Farbe für geänderte Ressourcen.",
 	"colors.deleted": "Farbe für gelöschten Ressourcen.",
 	"colors.untracked": "Farbe für nicht verfolgte Ressourcen.",

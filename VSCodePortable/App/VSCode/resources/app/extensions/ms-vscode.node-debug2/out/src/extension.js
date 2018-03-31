@@ -8,16 +8,16 @@ const path = require("path");
 const fs = require("fs");
 const initialConfigurations = [
     {
-        name: "Launch Program",
-        type: "node2",
-        request: "launch",
-        program: "${workspaceFolder}/app.js",
-        cwd: "${workspaceFolder}"
+        name: 'Launch Program',
+        type: 'node2',
+        request: 'launch',
+        program: '${workspaceFolder}/app.js',
+        cwd: '${workspaceFolder}'
     },
     {
-        name: "Attach to Process",
-        type: "node2",
-        request: "attach",
+        name: 'Attach to Process',
+        type: 'node2',
+        request: 'attach',
         port: 9229
     }
 ];

@@ -14,7 +14,10 @@ const matchTag_1 = require("../matchTag");
 const splitJoinTag_1 = require("../splitJoinTag");
 const mergeLines_1 = require("../mergeLines");
 suite('Tests for Emmet actions on html tags', () => {
-    teardown(testUtils_1.closeAllEditors);
+    teardown(() => {
+        // Reset config and close all editors
+        return vscode_1.workspace.getConfiguration('emmet').update('syntaxProfiles', {}).then(testUtils_1.closeAllEditors);
+    });
     const contents = `
 	<div class="hello">
 		<ul>
@@ -93,6 +96,30 @@ suite('Tests for Emmet actions on html tags', () => {
             });
         });
     });
+    test('split/join tag in jsx with xhtml self closing tag', () => {
+        const expectedContents = `
+	<div class="hello">
+		<ul>
+			<li><span /></li>
+			<li><span>There</span></li>
+			<div><li><span>Bye</span></li></div>
+		</ul>
+		<span></span>
+	</div>
+	`;
+        return vscode_1.workspace.getConfiguration('emmet').update('syntaxProfiles', { jsx: { selfClosingStyle: 'xhtml' } }).then(() => {
+            return testUtils_1.withRandomFileEditor(contents, 'jsx', (editor, doc) => {
+                editor.selections = [
+                    new vscode_1.Selection(3, 17, 3, 17),
+                    new vscode_1.Selection(7, 5, 7, 5),
+                ];
+                return splitJoinTag_1.splitJoinTag().then(() => {
+                    assert.equal(doc.getText(), expectedContents);
+                    return Promise.resolve();
+                });
+            });
+        });
+    });
     test('match tag with mutliple cursors', () => {
         return testUtils_1.withRandomFileEditor(contents, 'html', (editor, doc) => {
             editor.selections = [
@@ -144,4 +171,4 @@ suite('Tests for Emmet actions on html tags', () => {
         });
     });
 });
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\emmet\out/test\tagActions.test.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\emmet\out/test\tagActions.test.js.map

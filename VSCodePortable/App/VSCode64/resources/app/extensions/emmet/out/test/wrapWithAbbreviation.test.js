@@ -55,7 +55,7 @@ suite('Tests for Wrap with Abbreviations', () => {
     teardown(testUtils_1.closeAllEditors);
     const multiCursors = [new vscode_1.Selection(2, 6, 2, 6), new vscode_1.Selection(3, 6, 3, 6)];
     const multiCursorsWithSelection = [new vscode_1.Selection(2, 2, 2, 28), new vscode_1.Selection(3, 2, 3, 33)];
-    const multiCursorsWithFullLineSelection = [new vscode_1.Selection(2, 0, 2, 28), new vscode_1.Selection(3, 0, 3, 33)];
+    const multiCursorsWithFullLineSelection = [new vscode_1.Selection(2, 0, 2, 28), new vscode_1.Selection(3, 0, 4, 0)];
     test('Wrap with block element using multi cursor', () => {
         return testWrapWithAbbreviation(multiCursors, 'div', wrapBlockElementExpected);
     });
@@ -222,6 +222,34 @@ suite('Tests for Wrap with Abbreviations', () => {
             });
         });
     });
+    test('Wrap individual lines with abbreviation with extra space selected', () => {
+        const contents = `
+	<ul class="nav main">
+		<li class="item1">img</li>
+		<li class="item2">hi.there</li>
+	</ul>
+`;
+        const wrapIndividualLinesExpected = `
+	<ul class="nav main">
+		<ul>
+			<li class="hello1"><li class="item1">img</li></li>
+			<li class="hello2"><li class="item2">hi.there</li></li>
+		</ul>
+	</ul>
+`;
+        return testUtils_1.withRandomFileEditor(contents, 'html', (editor, doc) => {
+            editor.selections = [new vscode_1.Selection(2, 1, 4, 0)];
+            const promise = abbreviationActions_1.wrapIndividualLinesWithAbbreviation({ abbreviation: 'ul>li.hello$*' });
+            if (!promise) {
+                assert.equal(1, 2, 'Wrap Individual Lines with Abbreviation returned undefined.');
+                return Promise.resolve();
+            }
+            return promise.then(() => {
+                assert.equal(editor.document.getText(), wrapIndividualLinesExpected);
+                return Promise.resolve();
+            });
+        });
+    });
     test('Wrap individual lines with abbreviation with comment filter', () => {
         const contents = `
 	<ul class="nav main">
@@ -295,4 +323,4 @@ function testWrapWithAbbreviation(selections, abbreviation, expectedContents) {
         });
     });
 }
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\emmet\out/test\wrapWithAbbreviation.test.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\emmet\out/test\wrapWithAbbreviation.test.js.map

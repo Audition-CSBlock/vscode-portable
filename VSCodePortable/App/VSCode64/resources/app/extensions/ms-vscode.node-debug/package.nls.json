@@ -1,10 +1,12 @@
 {
-	"extension.description": "Visual Studio Code debugger extension for Node.js",
+	"extension.description": "Node.js debugging support (versions < 8.0)",
 
 	"node.label": "Node.js",
 
 	"open.loaded.script": "Open Loaded Script",
+	"attach.node.process": "Attach to Node Process",
 	"toggle.skipping.this.file": "Toggle Skipping this File",
+	"toggle.auto.attach": "Toggle Auto Attach",
 
 	"loaded.scripts.view.name": "Loaded Scripts",
 
@@ -66,7 +68,7 @@
 	"node.snippet.remoteattach.label": "Node.js: Attach to Remote Program",
 	"node.snippet.remoteattach.description": "Attach to the debug port of a remote node program",
 	"node.snippet.attachProcess.label": "Node.js: Attach to Process",
-	"node.snippet.attachProcess.description": "Open process picker to select node or gulp process to attach to",
+	"node.snippet.attachProcess.description": "Open process picker to select node process to attach to",
 	"node.snippet.nodemon.label": "Node.js: Nodemon Setup",
 	"node.snippet.nodemon.description": "Use nodemon to relaunch a debug session on source changes",
 	"node.snippet.mocha.label": "Node.js: Mocha Tests",

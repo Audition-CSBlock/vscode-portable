@@ -58,7 +58,6 @@ function autoFixSettingsJSON(willSaveEvent) {
         },
         onError: function (error, offset, length) {
             if (error === jsonc_parser_1.ParseErrorCode.CommaExpected && lastEndOfSomething > -1) {
-                var errorPosition = document.positionAt(offset);
                 var fixPosition = document.positionAt(lastEndOfSomething);
                 edit.insert(document.uri, fixPosition, ',');
             }
@@ -83,30 +82,6 @@ function registerSettingsCompletions() {
         provideCompletionItems: function (document, position, token) {
             return new settingsDocumentHelper_1.SettingsDocument(document).provideCompletionItems(position, token);
         }
-    });
-}
-function provideContributedLocalesProposals(range) {
-    var contributedLocales = [];
-    for (var _i = 0, _a = vscode.extensions.all; _i < _a.length; _i++) {
-        var extension = _a[_i];
-        if (extension.packageJSON && extension.packageJSON['contributes'] && extension.packageJSON['contributes']['localizations'] && extension.packageJSON['contributes']['localizations'].length) {
-            var localizations = extension.packageJSON['contributes']['localizations'];
-            for (var _b = 0, localizations_1 = localizations; _b < localizations_1.length; _b++) {
-                var localization = localizations_1[_b];
-                if (contributedLocales.indexOf(localization.languageId) === -1) {
-                    contributedLocales.push(localization.languageId);
-                }
-            }
-        }
-    }
-    return contributedLocales.map(function (locale) {
-        var text = "\"" + locale + "\"";
-        var item = new vscode.CompletionItem(text);
-        item.kind = vscode.CompletionItemKind.Value;
-        item.insertText = text;
-        item.range = range;
-        item.filterText = text;
-        return item;
     });
 }
 function registerExtensionsCompletions() {
@@ -236,4 +211,4 @@ vscode.languages.registerDocumentSymbolProvider({ pattern: '**/launch.json', lan
         return result;
     }
 });
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/936b796aa8667de5edb536b00ce8a8e61fcebfb6/extensions\configuration-editing\out/extension.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/extensions\configuration-editing\out/extension.js.map

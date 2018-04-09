@@ -1,6 +1,7 @@
 # Visual Studio Code Insiders Portable
 [![Github latest release](https://img.shields.io/github/tag/Audition-CSBlock/vscode-portable.svg?style=flat-square)](https://github.com/Audition-CSBlock/vscode-portable/releases)
-[![Github license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/Audition-CSBlock/vscode-portable/blob/master/LICENSE)  
+[![Github license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/Audition-CSBlock/vscode-portable/blob/master/LICENSE)
+![Top language](https://img.shields.io/github/languages/top/Audition-CSBlock/vscode-portable.svg?style=flat-square)  
 Visual Studio Code Insiders is a code editor redefined and optimized for building and
 debugging modern web and cloud applications.
 
